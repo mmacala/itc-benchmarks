@@ -192,7 +192,7 @@ void null_pointer_012 ()
 {
 	int buf[5];
 	int *p = buf;
-	p[3] = 1;
+	p[3] = 1; /*Tool should not detect this line as error*/ /*No ERROR:NULL pointer dereference*/
 }
 
 
