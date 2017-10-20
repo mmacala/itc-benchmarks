@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Stack related defects
 * Defect Sub-type: Cross thread stack access
-*
+* CWE-672: Operation on a Resource after Expiration or Release
 */
 
 

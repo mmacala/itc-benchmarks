@@ -6,6 +6,7 @@
 * Defect Type: Misc defects
 * Defect Sub-type: Useless assignment
 * Description: Defect Free Code to identify false positives during useless assignment
+* CWE-563: Assignment to Variable without Use ('Unused Variable')
 */
 #include "HeaderFile.h"
 int rand (void);

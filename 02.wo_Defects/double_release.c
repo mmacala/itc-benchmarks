@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Double release
 * Description: Defect Free Code to identify false positives in double release - concurrency defects
+* CWE-765: Multiple Unlocks of a Critical Resource
 */
 
 /*You can specify the-lpthread to include <pthread.h>  Compile options */

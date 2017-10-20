@@ -6,6 +6,7 @@
 * Defect Type: Inappropriate code
 * Defect Sub-type: Redundant conditions
 * Description: Defect Free Code to identify false positives in redundant condition
+* CWE-398: Indicator of Poor Code Quality
 */
 
 #include "HeaderFile.h"

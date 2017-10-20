@@ -6,6 +6,7 @@
 * Defect Type: Pointer related defects
 * Defect Sub-type: Uninitialized pointer
 * Description: Defect Code to identify uninitialized pointer access in the code flow
+* CWE-824: Access of Uninitialized Pointer
 */
 /*
  * uninit_pointer.c

@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Inappropriate code
 * Defect Sub-type: Redundant conditions
-*
+* CWE-398: Indicator of Poor Code Quality
 */
 
 #include "HeaderFile.h"

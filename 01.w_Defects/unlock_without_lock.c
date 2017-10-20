@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Unlock without lock
 * Description: Defect Code to identify if a shared resource is unlocked without preceeding lock
+* CWE-832: Unlock of a Resource that is not Locked
 */
 
 

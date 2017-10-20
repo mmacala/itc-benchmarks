@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Long lock
 * Description: Defect Free Code to identify false positives of long lock conditions
+* CWE-662: Improper Synchronization
 */
 /***
 #include <pthread.h>	 Compile-time options. -lpthread You can specify*/

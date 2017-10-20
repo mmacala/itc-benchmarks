@@ -6,6 +6,7 @@
 * Defect Type: Resource management defects
 * Defect Sub-type: Free non dynamically allocated memory
 * Description: Defect Free Code to identify false positives while freeing non dynamically allocated memory
+* CWE-590: Free of Memory not on the Heap
 */
 
 #include "HeaderFile.h"

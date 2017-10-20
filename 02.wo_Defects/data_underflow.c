@@ -6,6 +6,7 @@
 * Defect Type: Numerical defects
 * Defect Sub-type: Data underflow
 * Description: Defect Free Code to identify false positives in data underflow in static declaration
+* CWE-191: Integer Underflow (Wrap or Wraparound)
 */
 #include "HeaderFile.h"
 /*

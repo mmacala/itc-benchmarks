@@ -6,6 +6,7 @@
 * Defect Type: Misc defects
 * Defect Sub-type: Bad extern type for global variable
 * Description: Defect Free Code to identify false positives during invalid extern declaration
+* CWE-843: Access of Resource Using Incompatible Type ('Type Confusion')
 */
 
 /*

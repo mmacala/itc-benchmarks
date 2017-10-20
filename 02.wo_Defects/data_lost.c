@@ -6,6 +6,7 @@
 * Defect Type: Numerical defects
 * Defect Sub-type: Integer precision lost because of cast
 * Description: Defect Free Code to identify false positives in data lost at cast
+* CWE-197: Numeric Truncation Error
 */
 
 static int sink;

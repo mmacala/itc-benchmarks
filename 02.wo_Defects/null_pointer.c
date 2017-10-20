@@ -6,6 +6,7 @@
 * Defect Type: Pointer related defects
 * Defect Sub-type: Dereferencing a NULL pointer
 * Description: Defect Free Code to identify false positives in deferencing Null Pointer
+* CWE-476: NULL Pointer Dereference
 */
 
 static int sink;

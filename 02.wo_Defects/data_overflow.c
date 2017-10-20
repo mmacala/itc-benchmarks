@@ -6,6 +6,7 @@
 * Defect Type: Numerical defects
 * Defect Sub-type: Data overflow
 * Description: Defect Free Code to identify false positives in data overflow in static declaration
+* CWE-190: Integer Overflow or Wraparound
 */
 
 static int sink;

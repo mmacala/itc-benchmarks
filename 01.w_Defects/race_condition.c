@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Concurrency defects
 * Defect Sub-type: Race condition
-*
+* CWE-362: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')
 */
 
 

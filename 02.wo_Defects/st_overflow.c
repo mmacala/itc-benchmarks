@@ -6,6 +6,7 @@
 * Defect Type: Stack related defects
 * Defect Sub-type: Stack overflow
 * Description: Defect Free Code to identify false positives in stack overflow conditions
+* CWE-121: Stack-based Buffer Overflow
 */
 
 /*	(Note) created test, assuming the maximum stack size 15 Kbytes (= 15360 bytes)	*/

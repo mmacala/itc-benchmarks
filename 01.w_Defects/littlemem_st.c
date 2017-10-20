@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Dynamic memory defects
 * Defect Sub-type: Assign small buffer for structure
-*
+* CWE-131: Incorrect Calculation of Buffer Size
 */
 
 

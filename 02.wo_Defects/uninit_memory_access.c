@@ -8,6 +8,7 @@
 * Description: Defect Free Code to identify false positives to identify access to memory locations which are uninitialized
 *  Created on: Sep 26, 2013
 *      Author: hemalatha
+* CWE-665: Improper Initialization
 */
 
 #include "HeaderFile.h"

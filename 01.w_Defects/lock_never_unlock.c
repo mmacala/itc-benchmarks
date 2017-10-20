@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Concurrency defects
 * Defect Sub-type: Locked but never unlock
-*
+* CWE-667: Improper Locking
 */
 
 

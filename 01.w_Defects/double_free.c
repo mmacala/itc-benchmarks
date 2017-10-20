@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Resource management defects
 * Defect Sub-type: Double free
-*
+* CWE-415: Double Free
 */
 
 #include "HeaderFile.h"

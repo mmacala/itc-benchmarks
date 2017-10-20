@@ -6,6 +6,7 @@
 * Defect Type: Inappropriate code
 * Defect Sub-type: Contradict conditions
 * Description: Defect Free Code to identify false positives occurring in contradicting conditions
+* CWE-398: Indicator of Poor Code Quality
 */
 #include "HeaderFile.h"
 int rand (void);

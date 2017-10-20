@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Dead lock
 * Description: Defect Free Code to identify false positives in dead lock conditions
+* CWE-833: Deadlock
 */
 #include "HeaderFile.h"
 

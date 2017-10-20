@@ -6,6 +6,7 @@
 * Defect Type: Resource management defects
 * Defect Sub-type: Double free
 * Description: Defect Free Code to identify false positives in double free - resource management defects
+* CWE-415: Double Free
 */
 
 #include "HeaderFile.h"

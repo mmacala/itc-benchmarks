@@ -8,6 +8,7 @@
 * Description: Defect Free Code to identify false positives while memory_allocation_failure -  Memory could not be allocated / insufficient memory
 *  Created on: Oct 14, 2013
 *      Author: hemalatha
+* CWE-789: Uncontrolled Memory Allocation
 */
 
 /*

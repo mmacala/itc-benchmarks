@@ -6,6 +6,7 @@
 * Defect Type: Static memory defects
 * Defect Sub-type: Static buffer overrun
 * Description: Defect Free Code to identify false positives in static buffer overrun
+* CWE-121: Stack-based Buffer Overflow
 */
 
 #include "HeaderFile.h"

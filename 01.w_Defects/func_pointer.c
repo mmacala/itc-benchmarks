@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Pointer related defects
 * Defect Sub-type: Bad cast of a function pointer
-*
+* CWE-704: Incorrect Type Conversion or Cast
 */
 
 #include "HeaderFile.h"

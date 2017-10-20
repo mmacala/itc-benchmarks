@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Race condition
 * Description: Defect Free Code to identify false positives in race condition
+* CWE-362: Concurrent Execution using Shared Resource with Improper Synchronization ('Race Condition')
 */
 
 

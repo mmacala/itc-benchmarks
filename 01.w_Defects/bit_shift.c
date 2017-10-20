@@ -6,6 +6,7 @@
 * Defect Type: Numerical defects
 * Defect Sub-type: Bit shift bigger than integral type or negative
 * Description: Defect Code to identify bit shift errors
+* CWE-189: Numeric Errors
 */
 #include "HeaderFile.h"
 int rand (void);

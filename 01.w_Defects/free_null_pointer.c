@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Pointer related defects
 * Defect Sub-type: Free NULL  pointer
-*
+* CWE-476: NULL Pointer Dereference
 */
 
 #include "HeaderFile.h"

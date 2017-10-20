@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Concurrency defects
 * Defect Sub-type: Double lock
-*
+* CWE-667: Improper Locking
 */
 
 

@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Concurrency defects
 * Defect Sub-type: Double release
-*
+* CWE-765: Multiple Unlocks of a Critical Resource
 */
 
 /* You can specify the-lpthread to include <pthread.h>  Compile options */

@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Static memory defects
 * Defect Sub-type: Static buffer overrun
-*
+* CWE-121: Stack-based Buffer Overflow
 */
 
 #include "HeaderFile.h"

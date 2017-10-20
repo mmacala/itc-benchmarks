@@ -9,6 +9,7 @@
 * Description: Defect Free Code to identify false positives in buffer underrun in dynamic memory allocation
 *  Created on: Sep 27, 2012
 *      Author: caesaru01
+* CWE-124: Buffer Underwrite ('Buffer Underflow')
 */
 
 /*

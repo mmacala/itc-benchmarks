@@ -6,6 +6,7 @@
 * Defect Type: Misc defects
 * Defect Sub-type: Unintentional end less loop
 * Description: Defect Free Code to identify false positives in unintentional endless looping
+* CWE-835: Loop with Unreachable Exit Condition ('Infinite Loop')
 */
 
 #include "HeaderFile.h"

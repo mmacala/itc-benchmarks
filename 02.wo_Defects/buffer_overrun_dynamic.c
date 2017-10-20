@@ -8,6 +8,7 @@
 * Description: Defect Free Code to identify false positives in dynamic buffer overrun
 *  Created on: Sep 27, 2012
 *      Author: caesaru01
+* CWE-122: Heap-based Buffer Overflow
 */
 #include "HeaderFile.h"
 

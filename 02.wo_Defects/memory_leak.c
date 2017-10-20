@@ -6,6 +6,7 @@
 * Defect Type: Resource management defects
 * Defect Sub-type: Memory leakage
 * Description: Defect Free Code to identify false positives in memory leak conditions
+* CWE-401: Improper Release of Memory Before Removing Last Reference ('Memory Leak')
 */
 
 #include "HeaderFile.h"

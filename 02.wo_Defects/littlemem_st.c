@@ -6,6 +6,7 @@
 * Defect Type: Dynamic memory defects
 * Defect Sub-type: Assign small buffer for structure
 * Description: Defect Free Code to identify false positives in lesser static memory allocation
+* CWE-131: Incorrect Calculation of Buffer Size
 */
 
 #include "HeaderFile.h"

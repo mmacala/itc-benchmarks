@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Pointer related defects
 * Defect Sub-type: Incorrect pointer arithmetic
-*
+* CWE-465: Pointer Issues
 */
 
 #include "HeaderFile.h"

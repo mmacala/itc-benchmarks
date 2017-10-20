@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Concurrency defects
 * Defect Sub-type: Live lock
-*
+* CWE-764: Multiple Locks of a Critical Resource
 */
 
 

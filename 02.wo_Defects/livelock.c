@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Live lock
 * Description: Defect Free Code to identify false positives in live lock - concurrency conditions
+* CWE-764: Multiple Locks of a Critical Resource
 */
 
 

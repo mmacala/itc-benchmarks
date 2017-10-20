@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Double lock
 * Description: Defect Free Code to identify false positives in double lock - concurrency defects
+* CWE-667: Improper Locking
 */
 
 

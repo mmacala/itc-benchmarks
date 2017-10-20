@@ -6,6 +6,7 @@
 * Defect Type: Inappropriate code
 * Defect Sub-type: Unused variable
 * Description: Defect Code to identify the unused variable in a function
+* CWE-563: Assignment to Variable without Use ('Unused Variable')
 */
 
 #include "HeaderFile.h"

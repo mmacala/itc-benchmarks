@@ -6,6 +6,7 @@
 * Defect Type: Numerical defects
 * Defect Sub-type: Integer sign lost because of unsigned cast
 * Description: Defect Free Code to identify false positives in losing sign due to cast
+* CWE-196: Unsigned to Signed Conversion Error
 */
 
 #include "HeaderFile.h"

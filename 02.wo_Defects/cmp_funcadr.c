@@ -5,6 +5,7 @@
 * Defect Type: Pointer related defects
 * Defect Sub-type: Comparison NULL with function pointer
 * Description: Defect Free Code to identify false positives while comparison of NULL with function pointers
+* CWE-480: Use of Incorrect Operator
 */
 
 #include "HeaderFile.h"

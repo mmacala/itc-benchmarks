@@ -6,6 +6,7 @@
 * Defect Type: Numerical defects
 * Defect Sub-type: Division by zero
 * Description: Defect Free Code to identify false positives to identify the division by zero functionality
+* CWE-369: Divide By Zero
 */
 
 #include "HeaderFile.h"
