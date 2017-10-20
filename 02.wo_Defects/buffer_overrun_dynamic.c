@@ -22,7 +22,7 @@ void dynamic_buffer_overrun_001 ()
 	{
 		for (i=0;i<5;i++)
 	    {
-			buf[i]=1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+			buf[i]=1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    }
 	    free(buf);
 	}
@@ -37,7 +37,7 @@ void dynamic_buffer_overrun_002 ()
 	short *buf=(short*) calloc(5,sizeof(short));
 	if(buf!=NULL)
 	{
-		*(buf+4)=1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+		*(buf+4)=1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		free(buf);
 	}
 }
@@ -57,7 +57,7 @@ void dynamic_buffer_overrun_003 ()
 		{
 			buf[i]=1;
 		}
-		ret = buf[4]; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+		ret = buf[4]; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		free(buf);
 		printf("%d",ret);
 	}
@@ -72,7 +72,7 @@ void dynamic_buffer_overrun_004 ()
 	int *buf=(int*) calloc(5,sizeof(int));
 	if(buf!=NULL)
 	{
-		*(buf+4) = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+		*(buf+4) = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		free(buf);
 	}
 }
@@ -89,7 +89,7 @@ void dynamic_buffer_overrun_005 ()
 	{
 		for(i=0;i<5;i++)
 		{
-			buf[i]=1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+			buf[i]=1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		}
 		free(buf);
 	}
@@ -107,7 +107,7 @@ void dynamic_buffer_overrun_006 ()
 	{
 		for(i=0;i<5;i++)
 		{
-			buf[i]=1.0;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+			buf[i]=1.0;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		}
 	    free(buf);
 	}
@@ -125,7 +125,7 @@ void dynamic_buffer_overrun_007 ()
 	{
 		for(i=0;i<5;i++)
 		{
-			buf[i]=1.0;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+			buf[i]=1.0;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		}
 	    free(buf);
 	}
@@ -147,7 +147,7 @@ void dynamic_buffer_overrun_008 ()
 	{
 		for(j=0;j<5;j++)
 		{
-			*(*(buf+i)+j)=i;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+			*(*(buf+i)+j)=i;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		}
 		free(buf[i]);
 	}
@@ -169,7 +169,7 @@ void dynamic_buffer_overrun_009 ()
 	int i,j=4;
 	for(i=0;i<5;i++)
 	{
-		*((*pbuf[i])+j)=5; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+		*((*pbuf[i])+j)=5; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	}
 	free(buf1);
 	free(buf2);
@@ -193,7 +193,7 @@ void dynamic_buffer_overrun_010 ()
 	dynamic_buffer_overrun_010_s_001* sbuf= calloc(5,sizeof(dynamic_buffer_overrun_010_s_001)) ;
 	if(sbuf!=NULL)
 	{
-	    sbuf[4].a = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    sbuf[4].a = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(sbuf);
 	}
 }
@@ -213,7 +213,7 @@ void dynamic_buffer_overrun_011 ()
 	dynamic_buffer_overrun_011_s_001* s=(dynamic_buffer_overrun_011_s_001*) calloc(5,sizeof(dynamic_buffer_overrun_011_s_001)) ;
 	if(s!=NULL)
 	{
-		(s+4)->buf[4] = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+		(s+4)->buf[4] = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		free(s);
 	}
 }
@@ -228,7 +228,7 @@ void dynamic_buffer_overrun_012 ()
 	int index = 4;
 	if(buf!=NULL)
 	{
-		*(buf+index)=9; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+		*(buf+index)=9; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		free(buf);
 	}
 }
@@ -243,7 +243,7 @@ void  dynamic_buffer_overrun_013()
 	int index = 4;
 	if(buf!=NULL)
 	{
-	    buf[index] = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    buf[index] = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -258,7 +258,7 @@ void dynamic_buffer_overrun_014 ()
 	int index = 1;
 	if(buf!=NULL)
 	{
-	    *(buf +((2 * index) + 1)) = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    *(buf +((2 * index) + 1)) = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -273,7 +273,7 @@ void dynamic_buffer_overrun_015 ()
 	int index = 1;
 	if(buf!=NULL)
 	{
-	    buf[(index * index) + 1] = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    buf[(index * index) + 1] = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -293,7 +293,7 @@ void dynamic_buffer_overrun_016 ()
 	int *buf=(int*) calloc(5,sizeof(int));
 	if(buf!=NULL)
 	{
-	    buf[dynamic_buffer_overrun_016_func_001 ()] = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    buf[dynamic_buffer_overrun_016_func_001 ()] = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -307,7 +307,7 @@ void dynamic_buffer_overrun_017_func_001 (int index)
 	int *buf=(int*) calloc(5,sizeof(int));
 	if(buf!=NULL)
 	{
-	    *(buf +index) = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    *(buf +index) = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -328,7 +328,7 @@ void dynamic_buffer_overrun_018 ()
 	int index = 1;
 	if(buf!=NULL)
 	{
-	    *(buf+indexes[index]) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    *(buf+indexes[index]) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -345,7 +345,7 @@ void dynamic_buffer_overrun_019 ()
 	index1 = index;
 	if(buf!=NULL)
 	{
-	    buf[index1] = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    buf[index1] = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -364,7 +364,7 @@ void dynamic_buffer_overrun_020 ()
 	index2 = index1;
 	if(buf!=NULL)
 	{
-	    buf[index2] = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    buf[index2] = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -382,7 +382,7 @@ void dynamic_buffer_overrun_021 ()
 	{
 		p1 = buf;
 		p2 = p1;
-		*(p2+4) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+		*(p2+4) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -398,7 +398,7 @@ void dynamic_buffer_overrun_022 ()
 	if(buf!=NULL)
 	{
 	    p = buf;
-	    *(p+4) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    *(p+4) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -417,7 +417,7 @@ void dynamic_buffer_overrun_023 ()
 	    p = buf;
 	    for (i = 0; i < 5; i ++)
 	    {
-		    *p = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+		    *p = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		     p ++;
 	    }
 	    free(buf);
@@ -430,7 +430,7 @@ void dynamic_buffer_overrun_023 ()
  */
 void dynamic_buffer_overrun_024_func_001 (int *buf)
 {
-	*(buf+4) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	*(buf+4) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 }
 
 void dynamic_buffer_overrun_024 ()
@@ -457,7 +457,7 @@ void dynamic_buffer_overrun_025 ()
 	{
 		for(i=0;i<5;i++)
 		{
-			buf[i]='1';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+			buf[i]='1';/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		}
 	    free(buf);
 	}
@@ -475,7 +475,7 @@ void dynamic_buffer_overrun_026 ()
 	p = (int*)buf;
 	if(buf!=NULL)
 	{
-	    *(p + 0) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    *(p + 0) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -491,7 +491,7 @@ void dynamic_buffer_overrun_027 ()
 	p = (char*)buf;
 	if(buf!=NULL)
 	{
-	    *(p + 1) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    *(p + 1) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf);
 	}
 }
@@ -509,7 +509,7 @@ void dynamic_buffer_overrun_028 ()
 		{
 	    	*(buf1+i)=i;
 		}
-    	*(buf2+*(buf1+2))=1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+    	*(buf2+*(buf1+2))=1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    free(buf1);
 	    free(buf2);
 }
@@ -527,7 +527,7 @@ void dynamic_buffer_overrun_029()
 		char* buf= (char*) malloc(sizeof(char));
 		if(buf!=NULL)
 		{
-		    buf[i-1]='a';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+		    buf[i-1]='a';/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 		    free(buf);
 		}
 		i--;
@@ -554,7 +554,7 @@ void dynamic_buffer_overrun_030()
 	{
 		for(j=0;j<10;j++)
 		{
-		  doubleptr[i][j]='a';   /*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/ 	
+		  doubleptr[i][j]='a';   /*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/ 	
 		}
 		free(doubleptr[i]);
 	}	
@@ -575,7 +575,7 @@ void dynamic_buffer_overrun_031()
 	{
 	    for(i=0;i<11;i++)
 	    {
-	    	ptr1[i]='a';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    	ptr1[i]='a';/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    }
     	ptr1[i]='\0';
 	    memcpy(ptr2,ptr1,11);
@@ -603,7 +603,7 @@ void dynamic_buffer_overrun_032()
 	{
 	    for(i=0;i<10;i++)
 	    {
-	    	ptr_s[i].arri[i]='a';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer overrun*/
+	    	ptr_s[i].arri[i]='a';/*Tool should not detect this line as error*/ /*No ERROR:Buffer overrun*/
 	    }
 	    free(ptr_s);
 	}

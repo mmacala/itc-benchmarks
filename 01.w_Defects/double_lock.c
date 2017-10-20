@@ -90,7 +90,6 @@ void * double_lock_002_tsk_001 (void * pram)
 #if ! defined(CHECKER_POLYSPACE)
 	pthread_mutex_lock (&double_lock_002_glb_mutex);
     double_lock_002_glb_data = (double_lock_002_glb_data% 100) + 1;
-	/*Tool should detect this line as error*/
     pthread_mutex_lock (&double_lock_002_glb_mutex);  /*Tool should detect this line as error*/ /*ERROR:Double Lock*/
     double_lock_002_glb_data = (double_lock_002_glb_data% 100) + 1;
 	pthread_mutex_unlock(&double_lock_002_glb_mutex);

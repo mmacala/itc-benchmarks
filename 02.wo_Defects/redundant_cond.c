@@ -99,7 +99,7 @@ void redundant_cond_005 ()
 	int ret;
 
 	a = rand();
-	if (a < 10) /*Tool should detect this line as error*/ /*No ERROR:Redundant condition*/
+	if (a < 10) /*Tool should not detect this line as error*/ /*No ERROR:Redundant condition*/
 	{
 		b += a;
 	}

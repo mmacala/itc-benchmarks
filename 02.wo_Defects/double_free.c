@@ -18,7 +18,7 @@ void double_free_001()
 {
 	char* ptr= (char*) malloc(sizeof(char));
 
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 }
 
 /*
@@ -37,7 +37,7 @@ void double_free_002()
 		if(i==10)
 		free(ptr);
 	}
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 }
 
 /*
@@ -56,7 +56,7 @@ void double_free_003()
 		
 	}
 
-	free(ptr);  /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+	free(ptr);  /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 }
 
 /*
@@ -73,7 +73,7 @@ void double_free_004()
 		*(ptr+i)='a';
 
 	}
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 }
 
 /*
@@ -86,7 +86,7 @@ void double_free_005()
 	char* ptr= (char*) malloc(sizeof(char));
 
 	if(ptr)
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 }
 
 /*
@@ -100,7 +100,7 @@ void double_free_006()
 	if(0)
 	free(ptr);
 
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 }
 
 /*
@@ -116,7 +116,7 @@ void double_free_007()
 	if(flag<0)
 	free(ptr);
 
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 }
 
 /*
@@ -126,7 +126,7 @@ void double_free_007()
 char *double_free_function_008_gbl_ptr;
 void double_free_function_008()
 {
-	free (double_free_function_008_gbl_ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+	free (double_free_function_008_gbl_ptr); /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 }
 
 void double_free_008()
@@ -152,7 +152,7 @@ void double_free_009()
 		free(ptr);
 		flag++;
 	}
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 }
 
 /*
@@ -168,7 +168,7 @@ void double_free_010()
 
 	while(flag)
 	{
-		free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+		free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 		flag--;
 	}
 }
@@ -187,7 +187,7 @@ void double_free_011()
 	while(a<b)
 	{
 		if(flag ==1)
-		free(ptr);  /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+		free(ptr);  /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 		a++;
 	}
 }
@@ -205,7 +205,7 @@ void double_free_012()
 
 	for(a=0;a<1;a++)
 	{
-		free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Double free*/
+		free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Double free*/
 	}
 }
 

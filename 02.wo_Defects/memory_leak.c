@@ -22,7 +22,7 @@ void memory_leak_001 ()
 	char *buf;
 	for (i=0;;i++)
 	{
-		buf=(char*) calloc(5,sizeof(char)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+		buf=(char*) calloc(5,sizeof(char)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 		if(buf!=NULL)
 		{
 			*(buf+1)=1;
@@ -44,7 +44,7 @@ void memory_leak_002 ()
 	int i,j;
 
 	for(i=0;i<5;i++)
-		ptr[i]=(int*) malloc(5*sizeof(int)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+		ptr[i]=(int*) malloc(5*sizeof(int)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 
 	for(i=0;i<5;i++)
 	{
@@ -71,7 +71,7 @@ void memory_leak_003 ()
 {
 	char *str = "This is a string";
 	char *str1;
-	memory_leak_003_func_001(strlen(str),&str1); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+	memory_leak_003_func_001(strlen(str),&str1); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 	strcpy(str1,str);
 	free(str1);
 }
@@ -94,7 +94,7 @@ void memory_leak_004 ()
 	if(s!=NULL)
 	for(i= 0; i<5 ;i++)
 	{
-		(s+i)->buf = (char*)malloc(25* sizeof(char)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+		(s+i)->buf = (char*)malloc(25* sizeof(char)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 	}
 	strcpy((s+4)->buf,s1);
 	for(i= 0; i<5 ;i++)
@@ -113,7 +113,7 @@ void memory_leak_005()
 
 	if(flag > 0)
 	{
-		ptr= (float*) malloc(5*sizeof(float)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+		ptr= (float*) malloc(5*sizeof(float)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 		if(ptr!=NULL)
 		{
 			*(ptr+1) = 10.5;
@@ -143,7 +143,7 @@ void memory_leak_006()
 
 	if(memory_leak_006_func_001(flag)==0)
 	{
-		dptr= (double*) malloc(5*sizeof(double)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+		dptr= (double*) malloc(5*sizeof(double)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 		if(dptr!=NULL)
 		{
            *(dptr+1) = 10.50000;
@@ -163,7 +163,7 @@ int memory_leak_007_func_001 (int flag)
 	{
 		case 1:
 		{
-			vptr = (int *)calloc(10, sizeof(int)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+			vptr = (int *)calloc(10, sizeof(int)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 			if(vptr!=NULL)
 			{
 			   *((int*)vptr+1) = 10;
@@ -210,7 +210,7 @@ void memory_leak_007 ()
 */
 void memory_leak_008 ()
 {
-	int *ptr=(int*) malloc(5 * sizeof(int)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+	int *ptr=(int*) malloc(5 * sizeof(int)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 	int *p = NULL ;
 	if(ptr !=NULL)
 	{
@@ -227,7 +227,7 @@ void memory_leak_008 ()
 */
 void memory_leak_009 ()
 {
-	float *ptr=(float*) malloc(5 * sizeof(float)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+	float *ptr=(float*) malloc(5 * sizeof(float)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 	float *p = NULL ;
 	if(ptr !=NULL)
 	{
@@ -244,7 +244,7 @@ void memory_leak_009 ()
 */
 void memory_leak_0010 ()
 {
-	int *ptr = (int*) calloc(5,sizeof(int)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+	int *ptr = (int*) calloc(5,sizeof(int)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 	int *p1 = NULL;
 	int *p2 = NULL;
 	if(ptr !=NULL)
@@ -270,7 +270,7 @@ void memory_leak_0011()
 {
     char * buf = NULL;
     memory_leak_0011_uni_001 un;
-    buf = (char *)calloc(50, sizeof(char)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+    buf = (char *)calloc(50, sizeof(char)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 	if(buf!=NULL)
 	{
           strcpy(buf, "This Is A String");
@@ -309,7 +309,7 @@ typedef union {
 
 void memory_leak_0012 ()
 {
-	memory_leak_0012_uni_001 *u = (memory_leak_0012_uni_001 * )malloc(5*sizeof( memory_leak_0012_uni_001 )); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+	memory_leak_0012_uni_001 *u = (memory_leak_0012_uni_001 * )malloc(5*sizeof( memory_leak_0012_uni_001 )); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 	memory_leak_0012_uni_001 *p  = NULL;
 	p = u;
     if(u!=NULL)
@@ -346,7 +346,7 @@ typedef union {
 
 void memory_leak_0013 ()
 {
-	memory_leak_0013_uni_001 *u = (memory_leak_0013_uni_001 * )malloc(5*sizeof( memory_leak_0013_uni_001 )); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+	memory_leak_0013_uni_001 *u = (memory_leak_0013_uni_001 * )malloc(5*sizeof( memory_leak_0013_uni_001 )); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 	if(u!=NULL)
 	{
 		u->s1 = (memory_leak_0013_s_001 *) malloc(sizeof(memory_leak_0013_s_001));
@@ -375,7 +375,7 @@ void memory_leak_0014 ()
     fptr = NULL;
     {
         float * fptr = *fp1;
-        fptr = (float *)calloc(10, sizeof(float)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+        fptr = (float *)calloc(10, sizeof(float)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
         if(fptr!=NULL)
         {
            *(fptr+3) = 50.5;
@@ -401,7 +401,7 @@ char * memory_leak_0015_func_001 (int len)
 void memory_leak_0015 ()
 {
 	char *str = "This is a string";
-	char *str1 = memory_leak_0015_func_001(strlen(str)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+	char *str1 = memory_leak_0015_func_001(strlen(str)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 	if(str1!=NULL)
 	{
 	   strcpy(str1,str);
@@ -420,7 +420,7 @@ void memory_leak_0016_func_001 (int len)
 {
 	memory_leak_0016_gbl_ptr=NULL;
 	if(a == INDEX)
-		memory_leak_0016_gbl_ptr= malloc(sizeof(char) * (len+1)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+		memory_leak_0016_gbl_ptr= malloc(sizeof(char) * (len+1)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 }
 
 void memory_leak_0016 ()
@@ -449,7 +449,7 @@ int memory_leak_0017_func_001(int flag)
 void memory_leak_0017_func_002()
 {
 	int i,j;
-	memory_leak_0017_gbl_doubleptr=(long**) malloc(10*sizeof(long*)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+	memory_leak_0017_gbl_doubleptr=(long**) malloc(10*sizeof(long*)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 
 	for(i=0;i<10;i++)
 	{
@@ -509,7 +509,7 @@ void memory_leak_0018_func_001()
 			memory_leak_0018dst = (char**) malloc(5*sizeof(char*));
 		    for(i=0;i<5;i++)
 		    {
-		    	memory_leak_0018dst[i]=(char*) malloc(15*sizeof(char)); /*Tool should not detect  this line as error*/ /*No ERROR:Memory Leakage */
+		    	memory_leak_0018dst[i]=(char*) malloc(15*sizeof(char)); /*Tool should not detect this line as error*/ /*No ERROR:Memory Leakage */
 		    }
 		    break;
 		}

@@ -27,7 +27,7 @@ typedef struct {
         int  data;
 }invalid_extern_001_glb_006_s_001;
 
-extern invalid_extern_001_glb_006_s_001 *invalid_extern_001_glb_006_str;
+extern invalid_extern_001_glb_006_s_001 *invalid_extern_001_glb_006_str; /*Tool should not detect this line as error*/ /*No ERROR:Bad extern type for global variable*/
 
 
 void invalid_extern_001 ()

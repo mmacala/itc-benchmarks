@@ -96,7 +96,7 @@ void dead_code_005 ()
 	int ret;
 	if (flag > 0)
 	{
-		a ++; /*Tool should  detect this line as error*/ /* ERROR:Dead Code*/
+		a ++; /*Tool should detect this line as error*/ /* ERROR:Dead Code*/
 	}
 	ret = a;
         sink = ret;
@@ -113,7 +113,7 @@ void dead_code_006 ()
 	int ret;
 	if (flag == 0)
 	{
-		a ++; /*Tool should  detect this line as error*/ /* ERROR:Dead Code*/
+		a ++; /*Tool should detect this line as error*/ /* ERROR:Dead Code*/
 	}
 	ret = a;
         sink = ret;

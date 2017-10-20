@@ -53,7 +53,7 @@ void free_null_pointer_003 ()
 			buf=(long*) calloc(5,sizeof(long));
 			buf[0]=i;
 		}
-		free (buf);/*ERROR:Freeing a NULL pointer*/
+		free (buf);/* Tool should detect this line as error */ /*ERROR:Freeing a NULL pointer*/
 		buf = NULL;
 		if(i>=10)
 		break;
@@ -335,7 +335,7 @@ void free_null_pointer_010_func_003()
 	while(SET_MEM == 0)
 	{
 	    free(free_null_pointer_010_gbl_dst);
-	    free_null_pointer_010_gbl_dst = NULL;/*ERROR:Freeing a NULL pointer*/
+	    free_null_pointer_010_gbl_dst = NULL;/* Tool should detect this line as error */ /*ERROR:Freeing a NULL pointer*/
 	    break;
 	}
 }

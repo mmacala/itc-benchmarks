@@ -213,7 +213,7 @@ void sign_conv_015 ()
 int sign_conv_016_gbl_ret;
 void sign_conv_016_func_001 (int a)
 {
-	sign_conv_016_gbl_ret = a;
+	sign_conv_016_gbl_ret = a;/*Tool should not detect this line as error*/ /*No Error Integer sign lost because of unsigned cast */
 }
 
 void sign_conv_016 ()
@@ -229,7 +229,7 @@ int sign_conv_017_gbl_buf[5] = {1, 2, 3, -4, 5};
 int sign_conv_017_gbl_ret;
 void sign_conv_017 ()
 {
-	sign_conv_017_gbl_ret = sign_conv_017_gbl_buf[3];
+	sign_conv_017_gbl_ret = sign_conv_017_gbl_buf[3];/*Tool should not detect this line as error*/ /*No Error Integer sign lost because of unsigned cast */
 }
 
 /*
@@ -242,7 +242,7 @@ void sign_conv_018 ()
 	int a1;
 	unsigned int ret;
 	a1 = a;
-	ret = a1;
+	ret = a1;/*Tool should not detect this line as error*/ /*No Error Integer sign lost because of unsigned cast */
         sink = ret;
 }
 
@@ -258,7 +258,7 @@ void sign_conv_019 ()
 	unsigned int ret;
 	a1 = a;
 	a2 = a1;
-	ret = a2;
+	ret = a2;/*Tool should not detect this line as error*/ /*No Error Integer sign lost because of unsigned cast */
         sink = ret;
 }
 

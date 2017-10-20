@@ -206,7 +206,7 @@ void free_nondynamic_allocated_memory_013()
 	free_nondynamic_allocated_memory_struct_013* new_struct=malloc(sizeof(free_nondynamic_allocated_memory_struct_013));
 	free_nondynamic_allocated_memory_struct_013 str;
 	new_struct->next = &str;
-	free(new_struct->next);
+	free(new_struct->next);/*Tool should detect this line as error*/ /*ERROR:Free memory not allocated dynamically*/
 	free(new_struct);
 }
 

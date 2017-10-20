@@ -18,7 +18,7 @@ void bit_shift_001 ()
 {
 	int a = 1;
 	int ret;
-	ret = a << 10;/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << 10;/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -30,7 +30,7 @@ void bit_shift_002 ()
 {
 	long a = 1;
 	long ret;
-	ret = a << 10; /*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << 10; /*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -42,7 +42,7 @@ void bit_shift_003 ()
 {
 	unsigned int a = 1;
 	unsigned int ret;
-	ret = a << 10; /*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << 10; /*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -54,7 +54,7 @@ void bit_shift_004 ()
 {
 	unsigned long a = 1;
 	unsigned long ret;
-	ret = a << 10; /*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << 10; /*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -66,7 +66,7 @@ void bit_shift_005 ()
 {
 	int a = 1;
 	int ret;
-	ret = a << 10;/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << 10;/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -78,7 +78,7 @@ void bit_shift_006 ()
 {
 	int a = 1;
 	int ret;
-	ret = a >> 10;/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a >> 10;/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -90,7 +90,7 @@ void bit_shift_007 ()
 {
 	int a = 1;
 	int ret;
-	ret = a >> 10;/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a >> 10;/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -103,7 +103,7 @@ void bit_shift_008 ()
 	int a = 1;
 	int shift = 10;
 	int ret;
-	ret = a << shift;/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << shift;/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -117,7 +117,7 @@ void bit_shift_009 ()
 	int shift;
 	int ret;
 	shift = rand() % 32;
-	ret = a << shift;/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << shift;/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -130,7 +130,7 @@ void bit_shift_010 ()
 	int a = 1;
 	int shift = 2;
 	int ret;
-	ret = a << ((5 * shift) + 1);/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << ((5 * shift) + 1);/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -143,7 +143,7 @@ void bit_shift_011 ()
 	int a = 1;
 	int shift = 2;
 	int ret;
-	ret = a << ((shift * shift) + 6);/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << ((shift * shift) + 6);/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -160,7 +160,7 @@ void bit_shift_012 ()
 {
 	int a = 1;
 	int ret;
-	ret = a << bit_shift_012_func_001();/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << bit_shift_012_func_001();/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -172,7 +172,7 @@ void bit_shift_013_func_001 (int shift)
 {
 	int a = 1;
 	int ret;
-	ret = a << shift;/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << shift;/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -190,7 +190,7 @@ void bit_shift_014 ()
 	int a = 1;
 	int shifts[5] = {8, 40, 32, 16, 24};
 	int ret;
-	ret = a << shifts[3];/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << shifts[3];/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -205,7 +205,7 @@ void bit_shift_015 ()
 	int shift1;
 	int ret;
 	shift1 = shift;
-	ret = a << shift1;/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << shift1;/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -222,7 +222,7 @@ void bit_shift_016 ()
 	int ret;
 	shift1 = shift;
 	shift2 = shift1;
-	ret = a << shift2;/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = a << shift2;/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 
@@ -233,7 +233,7 @@ void bit_shift_016 ()
 void bit_shift_017 ()
 {
 	int ret;
-	ret = 1 << 10;/*Tool should  Not detect this line as error*/ /*NO ERROR:Bit shift error*/
+	ret = 1 << 10;/*Tool should not detect this line as error*/ /*NO ERROR:Bit shift error*/
         sink = ret;
 }
 

@@ -19,7 +19,7 @@ void free_nondynamic_allocated_memory_001()
 {
 	char* ptr="a";
 	if(0)
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 /*
@@ -32,7 +32,7 @@ void free_nondynamic_allocated_memory_002()
 	char* ptr="a";;
 	int flag=1;
 	if(flag>1)
-	free(ptr);  /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(ptr);  /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 /*
@@ -44,7 +44,7 @@ char *free_nondynamic_allocated_memory_003_gbl_ptr;
 void free_nondynamic_allocated_memory_003()
 {
 	free_nondynamic_allocated_memory_003_gbl_ptr = malloc(sizeof(char));
-	free(free_nondynamic_allocated_memory_003_gbl_ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(free_nondynamic_allocated_memory_003_gbl_ptr); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 
@@ -58,7 +58,7 @@ void free_nondynamic_allocated_memory_004()
 	char* ptr1="a";
 	char** ptr=&ptr1;
 	while(0)
-	free(ptr);  /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(ptr);  /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 /*
@@ -81,7 +81,7 @@ void free_nondynamic_allocated_memory_005()
 		*((*pbuf[i])+j)=5.0;
 	}
 	free(buf1);
-	free(buf2); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(buf2); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 /*
@@ -99,7 +99,7 @@ void free_nondynamic_allocated_memory_006()
 	free(ptr1);
 	free(ptr2);
 	free(ptr3);
-	free(ptr4); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(ptr4); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 /*
@@ -111,7 +111,7 @@ void free_nondynamic_allocated_memory_007()
 {
 	char* ptr="a";
 	while(0)
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 /*
@@ -124,7 +124,7 @@ void free_nondynamic_allocated_memory_008()
 	char* ptr="b";
 	int a=2,b=0;
 	while(a<b)
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 /*
@@ -137,7 +137,7 @@ void free_nondynamic_allocated_memory_009()
 	char* ptr="c";
 	int a=0,b=2;
 	while(a>b)
-	free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 /*
@@ -152,7 +152,7 @@ void free_nondynamic_allocated_memory_010()
 	{
 		char* ptr="g";
 		printf("%s",ptr);
-		/*free(ptr);*/ /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+		/*free(ptr);*/ /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 	}
 }
 
@@ -167,7 +167,7 @@ void free_nondynamic_allocated_memory_011()
 	for(i=0;i<0;i++)
 	{
 		char* ptr="z";
-		free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+		free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 	}
 }
 
@@ -184,7 +184,7 @@ void free_nondynamic_allocated_memory_012()
 	{
 		a++;
 		if(a==5)
-		free(ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+		free(ptr); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 	}
 }
 
@@ -206,7 +206,7 @@ void free_nondynamic_allocated_memory_013()
 	free_nondynamic_allocated_memory_struct_013* new_struct=malloc(sizeof(free_nondynamic_allocated_memory_struct_013));
 
 	new_struct->next = malloc(sizeof(free_nondynamic_allocated_memory_struct_013));
-	free(new_struct->next); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(new_struct->next); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 	free(new_struct);
 }
 
@@ -225,7 +225,7 @@ free_nondynamic_allocated_memory_struct_014 * free_nondynamic_allocated_memory_s
 void free_nondynamic_allocated_memory_014()
 {
 	free_nondynamic_allocated_memory_str = malloc(sizeof(free_nondynamic_allocated_memory_struct_014));
-	free(free_nondynamic_allocated_memory_str); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(free_nondynamic_allocated_memory_str); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 /*
@@ -235,7 +235,7 @@ void free_nondynamic_allocated_memory_014()
 char *free_nondynamic_allocated_memory_015_gbl_ptr;
 void free_nondynamic_allocated_memory_015_func_001()
 {
-	free(free_nondynamic_allocated_memory_015_gbl_ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	free(free_nondynamic_allocated_memory_015_gbl_ptr); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 void free_nondynamic_allocated_memory_015()
@@ -258,7 +258,7 @@ void free_nondynamic_allocated_memory_016_func_001()
 void free_nondynamic_allocated_memory_016_func_002()
 {
 	if(free_nondynamic_allocated_memory_016_gbl_var =='A')
-	   free(free_nondynamic_allocated_memory_016_gbl_ptr); /*Tool should Not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
+	   free(free_nondynamic_allocated_memory_016_gbl_ptr); /*Tool should not detect this line as error*/ /*No ERROR:Free memory not allocated dynamically*/
 }
 
 void free_nondynamic_allocated_memory_016()

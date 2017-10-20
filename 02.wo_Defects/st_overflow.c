@@ -47,7 +47,7 @@ typedef struct {
 
 void st_overflow_002_func_001 (st_overflow_002_s_001 s)
 {
-	s.buf[0] = 1;
+	s.buf[0] = 1; /*Tool should not detect this line as error*/ /*NO ERROR:Stack overflow*/
 }
 
 void st_overflow_002 ()
