@@ -118,6 +118,44 @@ void race_condition_002()
 	}
 }
 
+
+/* Race condition
+ * Complexity: Thread 1,2,3 try to access the 
+ * same function at the same time.This leads to erroneous results.
+*/
+
+int instance1=0;
+pthread_mutex_t mutex_count_003;
+
+
+void* race_condition_003_1()
+{
+	if(instance1==0)
+	{
+		int* ptr=(int*) malloc(10*sizeof(int));
+	    memcpy(ptr,"This is test", 0);
+        free(ptr);
+	pthread_mutex_lock(&mutex_count_003);
+        instance1++ ;/*Tool should not detect this line as error*/ /*No ERROR:Race condition*/
+	pthread_mutex_unlock(&mutex_count_003);
+	}
+	return NULL;
+}
+
+
+void race_condition_003()
+{
+	while(1)
+	{
+		pthread_t pthread1,pthread2,pthread3;
+		pthread_create(&pthread1,NULL,race_condition_003_1,NULL);
+		pthread_create(&pthread2,NULL,race_condition_003_1,NULL);
+		pthread_create(&pthread2,NULL,race_condition_003_1,NULL);
+	}
+}
+
+
+
 /* Race condition
  * Complexity: 10 threads try to access the 
  * same variable.This leads to erroneous results if mutexes are not used.
@@ -132,7 +170,7 @@ void* mythread(void * data);
 /* Global variable which will be shared */
 int x=0;
 
-void race_condition_003()
+void race_condition_004()
 {
 
 		int i;
@@ -165,52 +203,24 @@ void* mythread(void* data)
  * Complexity: Lock But Never Unlock in same function using one thread
  */
 
-pthread_mutex_t race_condition_004_glb_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t race_condition_005_glb_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 #if defined(CHECKER_POLYSPACE)
-void race_condition_004_glb_mutex_lock () {}
-void race_condition_004_glb_mutex_unlock () {}
+void race_condition_005_glb_mutex_lock () {}
+void race_condition_005_glb_mutex_unlock () {}
 #endif /* #if defined(CHECKER_POLYSPACE) */
 
-int race_condition_004_glb_data = 0;
-
-void * race_condition_004_tsk_001 (void *pram)
-{
-#if !defined(CHECKER_POLYSPACE)
-	pthread_mutex_lock(&race_condition_004_glb_mutex);
-	race_condition_004_glb_data = (race_condition_004_glb_data % 100) + 1;
-	pthread_mutex_unlock(&race_condition_004_glb_mutex);
-
-	unsigned long ip = (unsigned long)pthread_self();
-    printf("Task1! Lock Never Unlock, threadID# %lu! gbl1 = %d \n",ip ,race_condition_004_glb_data);
-#endif /* defined(CHECKER_POLYSPACE) */
-    return NULL;
-}
-
-void race_condition_004 ()
-{
-#if !defined(CHECKER_POLYSPACE)
-	pthread_t tid1;
-	pthread_mutex_init(&race_condition_004_glb_mutex, NULL);
-	pthread_create(&tid1, NULL, race_condition_004_tsk_001, NULL);
-	pthread_join(tid1, NULL);
-	pthread_mutex_destroy(&race_condition_004_glb_mutex);
-#endif /* defined(CHECKER_POLYSPACE) */
-}
-
-/* Race condition
- * Complexity: 4 threads try to access the
- * same variable.This leads to erroneous results if mutexes are not used.
-*/
-pthread_mutex_t race_condition_005_glb_mutex = PTHREAD_MUTEX_INITIALIZER;
 int race_condition_005_glb_data = 0;
 
 void * race_condition_005_tsk_001 (void *pram)
 {
 #if !defined(CHECKER_POLYSPACE)
 	pthread_mutex_lock(&race_condition_005_glb_mutex);
-	race_condition_005_glb_data = (race_condition_005_glb_data % 100) + 1; /*Tool should not detect this line as error*/ /*No ERROR:Race condition*/
+	race_condition_005_glb_data = (race_condition_005_glb_data % 100) + 1;/*Tool should not detect this line as error*/ /*No ERROR:Race condition*/
 	pthread_mutex_unlock(&race_condition_005_glb_mutex);
+
+	unsigned long ip = (unsigned long)pthread_self();
+	// printf("Task1! Lock Never Unlock, threadID# %lu! gbl1 = %d \n",ip ,race_condition_005_glb_data);
 #endif /* defined(CHECKER_POLYSPACE) */
     return NULL;
 }
@@ -218,75 +228,45 @@ void * race_condition_005_tsk_001 (void *pram)
 void race_condition_005 ()
 {
 #if !defined(CHECKER_POLYSPACE)
-	pthread_t tid1,tid2,tid3,tid4;
+	pthread_t tid1;
 	pthread_mutex_init(&race_condition_005_glb_mutex, NULL);
 	pthread_create(&tid1, NULL, race_condition_005_tsk_001, NULL);
-	pthread_create(&tid2, NULL, race_condition_005_tsk_001, NULL);
-	pthread_create(&tid3, NULL, race_condition_005_tsk_001, NULL);
-	pthread_create(&tid4, NULL, race_condition_005_tsk_001, NULL);
 	pthread_join(tid1, NULL);
-	pthread_join(tid2, NULL);
-	pthread_join(tid3, NULL);
-	pthread_join(tid4, NULL);
 	pthread_mutex_destroy(&race_condition_005_glb_mutex);
 #endif /* defined(CHECKER_POLYSPACE) */
 }
 
-#if defined(CHECKER_POLYSPACE)
-void race_condition_005_tskentry_001 ()
-{
-	while (1)
-	{
-		if (rand())
-		{
-			race_condition_005_tsk_001(NULL);
-		}
-	}
-}
-#endif /* defined(CHECKER_POLYSPACE) */
-
-/*
- * Types of defects: Data Race Condition
- * Complexity: Locking twice and unlocking only once in same function using two thread
- */
+/* Race condition
+ * Complexity: 4 threads try to access the
+ * same variable.This leads to erroneous results if mutexes are not used.
+*/
 pthread_mutex_t race_condition_006_glb_mutex = PTHREAD_MUTEX_INITIALIZER;
-
-#if defined(CHECKER_POLYSPACE)
-void race_condition_006_glb_mutex_lock () {}
-void race_condition_006_glb_mutex_unlock () {}
-#endif /* #if defined(CHECKER_POLYSPACE) */
-
 int race_condition_006_glb_data = 0;
 
-void * race_condition_006_tsk_001 (void * pram)
+void * race_condition_006_tsk_001 (void *pram)
 {
 #if !defined(CHECKER_POLYSPACE)
 	pthread_mutex_lock(&race_condition_006_glb_mutex);
-	race_condition_006_glb_data = (race_condition_006_glb_data % 100) + 1;
-	pthread_mutex_unlock(&race_condition_006_glb_mutex);
-
-	pthread_mutex_lock(&race_condition_006_glb_mutex);
 	race_condition_006_glb_data = (race_condition_006_glb_data % 100) + 1; /*Tool should not detect this line as error*/ /*No ERROR:Race condition*/
-#if defined PRINT_DEBUG
-	unsigned long ip = (unsigned long)pthread_self();
-    printf("Task2! Lock Never Unlock, threadID # %lu! gbl2 = %d \n",ip ,race_condition_006_glb_data);
-#endif /* defined(PRINT_DEBUG) */
-    pthread_mutex_unlock(&race_condition_006_glb_mutex);
-
+	pthread_mutex_unlock(&race_condition_006_glb_mutex);
 #endif /* defined(CHECKER_POLYSPACE) */
-	return NULL;
+    return NULL;
 }
 
 void race_condition_006 ()
 {
 #if !defined(CHECKER_POLYSPACE)
-	pthread_t tid1,tid2;
+	pthread_t tid1,tid2,tid3,tid4;
 	pthread_mutex_init(&race_condition_006_glb_mutex, NULL);
 	pthread_create(&tid1, NULL, race_condition_006_tsk_001, NULL);
 	pthread_create(&tid2, NULL, race_condition_006_tsk_001, NULL);
+	pthread_create(&tid3, NULL, race_condition_006_tsk_001, NULL);
+	pthread_create(&tid4, NULL, race_condition_006_tsk_001, NULL);
 	pthread_join(tid1, NULL);
 	pthread_join(tid2, NULL);
-
+	pthread_join(tid3, NULL);
+	pthread_join(tid4, NULL);
+	pthread_mutex_destroy(&race_condition_006_glb_mutex);
 #endif /* defined(CHECKER_POLYSPACE) */
 }
 
@@ -305,7 +285,7 @@ void race_condition_006_tskentry_001 ()
 
 /*
  * Types of defects: Data Race Condition
- * Complexity: Data Race Condition over multiple functions , 2 threads
+ * Complexity: Locking twice and unlocking only once in same function using two thread
  */
 pthread_mutex_t race_condition_007_glb_mutex = PTHREAD_MUTEX_INITIALIZER;
 
@@ -314,41 +294,37 @@ void race_condition_007_glb_mutex_lock () {}
 void race_condition_007_glb_mutex_unlock () {}
 #endif /* #if defined(CHECKER_POLYSPACE) */
 
-float race_condition_007_glb_data = 1000.0;
+int race_condition_007_glb_data = 0;
 
-void race_condition_007_func_001 (void *pram)
+void * race_condition_007_tsk_001 (void * pram)
 {
-#if ! defined(CHECKER_POLYSPACE)
-    pthread_mutex_lock (&race_condition_007_glb_mutex);
-    race_condition_007_glb_data += 1.2; /*Tool should not detect this line as error*/ /*No ERROR:Race condition*/
-
-    pthread_mutex_unlock (&race_condition_007_glb_mutex);
-#endif /* ! defined(CHECKER_POLYSPACE) */
-}
-
-void* race_condition_007_tsk_001 (void *pram)
-{
-#if ! defined(CHECKER_POLYSPACE)
+#if !defined(CHECKER_POLYSPACE)
+	pthread_mutex_lock(&race_condition_007_glb_mutex);
+	race_condition_007_glb_data = (race_condition_007_glb_data % 100) + 1;
+	pthread_mutex_unlock(&race_condition_007_glb_mutex);
 
 	pthread_mutex_lock(&race_condition_007_glb_mutex);
-	race_condition_007_glb_data += 3.5;
-	pthread_mutex_unlock(&race_condition_007_glb_mutex);
-	race_condition_007_func_001(pram);
+	race_condition_007_glb_data = (race_condition_007_glb_data % 100) + 1; /*Tool should not detect this line as error*/ /*No ERROR:Race condition*/
+#if defined PRINT_DEBUG
+	unsigned long ip = (unsigned long)pthread_self();
+    printf("Task2! Lock Never Unlock, threadID # %lu! gbl2 = %d \n",ip ,race_condition_007_glb_data);
+#endif /* defined(PRINT_DEBUG) */
+    pthread_mutex_unlock(&race_condition_007_glb_mutex);
+
 #endif /* defined(CHECKER_POLYSPACE) */
 	return NULL;
 }
 
 void race_condition_007 ()
 {
-#if ! defined(CHECKER_POLYSPACE)
+#if !defined(CHECKER_POLYSPACE)
 	pthread_t tid1,tid2;
-	intptr_t t1 = 10, t2 = 20;
 	pthread_mutex_init(&race_condition_007_glb_mutex, NULL);
-	pthread_create(&tid1, NULL, race_condition_007_tsk_001, (void *)t1);
-	pthread_create(&tid2, NULL, race_condition_007_tsk_001, (void *)t2);
+	pthread_create(&tid1, NULL, race_condition_007_tsk_001, NULL);
+	pthread_create(&tid2, NULL, race_condition_007_tsk_001, NULL);
 	pthread_join(tid1, NULL);
 	pthread_join(tid2, NULL);
-	pthread_mutex_destroy(&race_condition_007_glb_mutex);
+
 #endif /* defined(CHECKER_POLYSPACE) */
 }
 
@@ -367,56 +343,118 @@ void race_condition_007_tskentry_001 ()
 
 /*
  * Types of defects: Data Race Condition
- * Complexity: Data Race Condition over multiple functions using 2 threads unlocked based on if condition
+ * Complexity: Data Race Condition over multiple functions , 2 threads
  */
-pthread_mutex_t race_condition_008_glb_mutex_1 = PTHREAD_MUTEX_INITIALIZER;
-pthread_mutex_t race_condition_008_glb_mutex_2 = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t race_condition_008_glb_mutex = PTHREAD_MUTEX_INITIALIZER;
+
+#if defined(CHECKER_POLYSPACE)
+void race_condition_008_glb_mutex_lock () {}
+void race_condition_008_glb_mutex_unlock () {}
+#endif /* #if defined(CHECKER_POLYSPACE) */
+
 float race_condition_008_glb_data = 1000.0;
-void *race_condition_008_tsk_001(void *input)
+
+void race_condition_008_func_001 (void *pram)
 {
 #if ! defined(CHECKER_POLYSPACE)
-	long ip;
+    pthread_mutex_lock (&race_condition_008_glb_mutex);
+    race_condition_008_glb_data += 1.2; /*Tool should not detect this line as error*/ /*No ERROR:Race condition*/
 
-   pthread_mutex_lock( &race_condition_008_glb_mutex_1 );
-   ip = (long)input;
-   ip = ip *10;
-   race_condition_008_glb_data++; /*Tool should not detect this line as error*/ /*No ERROR:Race condition*/
-#if defined PRINT_DEBUG
-   printf("Task4_1! Lock Never Unlock, thread #%ld!\n",ip);
-#endif /* defined(PRINT_DEBUG) */
-
-
-   pthread_mutex_unlock( &race_condition_008_glb_mutex_1 );
-#endif /* defined(CHECKER_POLYSPACE) */
-
-   return NULL;
+    pthread_mutex_unlock (&race_condition_008_glb_mutex);
+#endif /* ! defined(CHECKER_POLYSPACE) */
 }
 
-void * race_condition_008_tsk_002(void *input)
+void* race_condition_008_tsk_001 (void *pram)
 {
 #if ! defined(CHECKER_POLYSPACE)
-	long ip;
 
-   pthread_mutex_lock( &race_condition_008_glb_mutex_2 );
-   ip = (long)input;
-   ip = ip *20;
-   race_condition_008_glb_data--;
-#if defined PRINT_DEBUG
-   printf("Task4_2! Lock Never Unlock, thread #%ld!\n",ip);
-#endif /* defined(PRINT_DEBUG) */
-   pthread_mutex_unlock( &race_condition_008_glb_mutex_2 );
+	pthread_mutex_lock(&race_condition_008_glb_mutex);
+	race_condition_008_glb_data += 3.5;
+	pthread_mutex_unlock(&race_condition_008_glb_mutex);
+	race_condition_008_func_001(pram);
 #endif /* defined(CHECKER_POLYSPACE) */
-   return NULL;
+	return NULL;
 }
 
 void race_condition_008 ()
 {
 #if ! defined(CHECKER_POLYSPACE)
+	pthread_t tid1,tid2;
+	intptr_t t1 = 10, t2 = 20;
+	pthread_mutex_init(&race_condition_008_glb_mutex, NULL);
+	pthread_create(&tid1, NULL, race_condition_008_tsk_001, (void *)t1);
+	pthread_create(&tid2, NULL, race_condition_008_tsk_001, (void *)t2);
+	pthread_join(tid1, NULL);
+	pthread_join(tid2, NULL);
+	pthread_mutex_destroy(&race_condition_008_glb_mutex);
+#endif /* defined(CHECKER_POLYSPACE) */
+}
+
+#if defined(CHECKER_POLYSPACE)
+void race_condition_008_tskentry_001 ()
+{
+	while (1)
+	{
+		if (rand())
+		{
+			race_condition_008_tsk_001(NULL);
+		}
+	}
+}
+#endif /* defined(CHECKER_POLYSPACE) */
+
+/*
+ * Types of defects: Data Race Condition
+ * Complexity: Data Race Condition over multiple functions using 2 threads unlocked based on if condition
+ */
+pthread_mutex_t race_condition_009_glb_mutex_1 = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t race_condition_009_glb_mutex_2 = PTHREAD_MUTEX_INITIALIZER;
+float race_condition_009_glb_data = 1000.0;
+void *race_condition_009_tsk_001(void *input)
+{
+#if ! defined(CHECKER_POLYSPACE)
+	long ip;
+
+   pthread_mutex_lock( &race_condition_009_glb_mutex_1 );
+   ip = (long)input;
+   ip = ip *10;
+   race_condition_009_glb_data++; /*Tool should not detect this line as error*/ /*No ERROR:Race condition*/
+#if defined PRINT_DEBUG
+   printf("Task4_1! Lock Never Unlock, thread #%ld!\n",ip);
+#endif /* defined(PRINT_DEBUG) */
+
+
+   pthread_mutex_unlock( &race_condition_009_glb_mutex_1 );
+#endif /* defined(CHECKER_POLYSPACE) */
+
+   return NULL;
+}
+
+void * race_condition_009_tsk_002(void *input)
+{
+#if ! defined(CHECKER_POLYSPACE)
+	long ip;
+
+   pthread_mutex_lock( &race_condition_009_glb_mutex_2 );
+   ip = (long)input;
+   ip = ip *20;
+   race_condition_009_glb_data--;
+#if defined PRINT_DEBUG
+   printf("Task4_2! Lock Never Unlock, thread #%ld!\n",ip);
+#endif /* defined(PRINT_DEBUG) */
+   pthread_mutex_unlock( &race_condition_009_glb_mutex_2 );
+#endif /* defined(CHECKER_POLYSPACE) */
+   return NULL;
+}
+
+void race_condition_009 ()
+{
+#if ! defined(CHECKER_POLYSPACE)
 	pthread_t th1,th2;
         intptr_t t1 = 10;
         intptr_t t2 = 20;
-	   pthread_create(&th1, NULL, race_condition_008_tsk_001, (void *)t1);
-	   pthread_create(&th2, NULL, race_condition_008_tsk_002, (void *)t2);
+	   pthread_create(&th1, NULL, race_condition_009_tsk_001, (void *)t1);
+	   pthread_create(&th2, NULL, race_condition_009_tsk_002, (void *)t2);
 	   sleep(1);
 #endif /* defined(CHECKER_POLYSPACE) */
 }
@@ -462,5 +500,10 @@ void race_condition_main ()
 	if (vflag == 8 || vflag ==888)
 	{
 		race_condition_008();
+	}
+
+	if (vflag == 9 || vflag ==888)
+	{
+		race_condition_009();
 	}
 }
