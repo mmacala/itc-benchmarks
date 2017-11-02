@@ -76,7 +76,7 @@ void * double_release_002_tsk_001 (void * pram)
 {
 	pthread_mutex_lock (double_release_002_glb_mutex);
 	double_release_002_glb_data = (double_release_002_glb_data% 100) + 1;
-	pthread_mutex_unlock (double_release_002_glb_mutex);
+	pthread_mutex_unlock (double_release_002_glb_mutex); /*Tool should not detect this line as error*/ /*No ERROR: UnLock without locking*/
 	return NULL;
 }
 
