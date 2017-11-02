@@ -414,7 +414,7 @@ void * st_cross_thread_access_005_tsk_002 (void *pram)
 	    pthread_mutex_unlock(&st_cross_thread_access_005_glb_mutex_1);
 
 	    unsigned long ip = (unsigned long)pthread_self();
-        printf("Task5_2! Cross thread stack access, threadID# %lu! gbl5 = %d arrval = %d \n",ip ,st_cross_thread_access_005_glb_data,*(p[2]+2));/*Tool should detect this line as error*/ /*Cross thread stack access error*/
+	    printf("Task5_2! Cross thread stack access, threadID# %lu! gbl5 = %d arrval = %d \n",ip ,st_cross_thread_access_005_glb_data,10/* *(p[2]+2) */);
 
 #endif /* defined(CHECKER_POLYSPACE) */
 	}
