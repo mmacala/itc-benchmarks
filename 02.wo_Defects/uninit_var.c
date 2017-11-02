@@ -6,6 +6,7 @@
 * Defect Type: Misc defects
 * Defect Sub-type: Uninitialized variable
 * Description: Defect Free Code to identify false positives to identify uninitialized variable in a code flow
+* CWE-457: Use of Uninitialized Variable
 */
 
 

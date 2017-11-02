@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Pointer related defects
 * Defect Sub-type: Comparison NULL with function pointer
-*
+* CWE-480: Use of Incorrect Operator
 */
 
 #include "HeaderFile.h"

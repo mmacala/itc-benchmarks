@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Static memory defects
 * Defect Sub-type: Static buffer underrun
-*
+* CWE-124: Buffer Underwrite ('Buffer Underflow')
 */
 
 #include "HeaderFile.h"

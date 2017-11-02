@@ -6,6 +6,7 @@
 * Defect Type: Stack related defects
 * Defect Sub-type: Stack overflow
 * Description: Defect Free Code to identify false positives in stack overflow conditions
+* CWE-121: Stack-based Buffer Overflow
 */
 
 /*	(Note) created test, assuming the maximum stack size 15 Kbytes (= 15360 bytes)	*/
@@ -47,7 +48,7 @@ typedef struct {
 
 void st_overflow_002_func_001 (st_overflow_002_s_001 s)
 {
-	s.buf[0] = 1;
+	s.buf[0] = 1; /*Tool should not detect this line as error*/ /*NO ERROR:Stack overflow*/
 }
 
 void st_overflow_002 ()

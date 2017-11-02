@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Resource management defects
 * Defect Sub-type: Return of a pointer to a local variable
-*
+* CWE-562: Return of Stack Variable Address
 */
 
 #include "HeaderFile.h"

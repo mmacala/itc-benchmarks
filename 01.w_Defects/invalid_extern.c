@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Misc defects
 * Defect Sub-type: Bad extern type for global variable
-*
+* CWE-843: Access of Resource Using Incompatible Type ('Type Confusion')
 */
 
 #include "HeaderFile.h"

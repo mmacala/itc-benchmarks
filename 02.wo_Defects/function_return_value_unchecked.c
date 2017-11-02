@@ -6,6 +6,7 @@
 * Defect Type: Inappropriate code
 * Defect Sub-type: Return value of function never checked
 * Description: Defect Free Code to identify false positives of return value not checked scenarios
+* CWE-252: Unchecked Return Value
 */
 
 /*

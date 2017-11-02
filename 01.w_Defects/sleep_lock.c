@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Concurrency defects
 * Defect Sub-type: Long lock
-*
+* CWE-662: Improper Synchronization
 */
 
 /*

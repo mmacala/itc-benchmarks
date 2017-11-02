@@ -6,6 +6,7 @@
 * Defect Type: Numerical defects
 * Defect Sub-type: Power related errors
 * Description: Defect Free Code to identify false positives in power related errors
+* CWE-189: Numeric Errors
 */
 
 /*

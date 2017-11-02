@@ -6,6 +6,7 @@
 * Defect Type: Pointer related defects
 * Defect Sub-type: Incorrect pointer arithmetic
 * Description: Defect Free Code to identify false positives in pointer arithmetic subtraction
+* CWE-465: Pointer Issues
 */
 
 #include "HeaderFile.h"

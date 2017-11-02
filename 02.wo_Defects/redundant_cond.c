@@ -6,6 +6,7 @@
 * Defect Type: Inappropriate code
 * Defect Sub-type: Redundant conditions
 * Description: Defect Free Code to identify false positives in redundant condition
+* CWE-398: Indicator of Poor Code Quality
 */
 
 #include "HeaderFile.h"
@@ -99,7 +100,7 @@ void redundant_cond_005 ()
 	int ret;
 
 	a = rand();
-	if (a < 10) /*Tool should detect this line as error*/ /*No ERROR:Redundant condition*/
+	if (a < 10) /*Tool should not detect this line as error*/ /*No ERROR:Redundant condition*/
 	{
 		b += a;
 	}

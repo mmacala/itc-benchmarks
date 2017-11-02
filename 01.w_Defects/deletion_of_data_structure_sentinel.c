@@ -6,6 +6,7 @@
 * Defect Type: Dynamic memory defects
 * Defect Sub-type: Deletion of data structure sentinel
 * Description: Defect Code to identify defects while deletion of data structure sentinel
+* CWE-463: Deletion of Data Structure Sentinel
 */
 
 #include "HeaderFile.h"

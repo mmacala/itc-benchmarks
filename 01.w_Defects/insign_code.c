@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Misc defects
 * Defect Sub-type: Useless assignment
-*
+* CWE-563: Assignment to Variable without Use ('Unused Variable')
 */
 #include "HeaderFile.h"
 int rand (void);

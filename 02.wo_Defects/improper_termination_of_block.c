@@ -6,6 +6,7 @@
 * Defect Type: Inappropriate code
 * Defect Sub-type: Improper termination of block
 * Description: Defect Free Code to identify false positives during improper termination of block
+* CWE-483: Incorrect Block Delimitation
 */
 
 #include "HeaderFile.h"

@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Misc defects
 * Defect Sub-type: Non void function does not return value
-*
+* CWE-398: Indicator of Poor Code Quality
 */
 
 #include "HeaderFile.h"

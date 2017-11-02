@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Locked but never unlock
 * Description: Defect Free Code to identify false positives while there has been a lock of a resource and never unlocked scenario
+* CWE-667: Improper Locking
 */
 
 

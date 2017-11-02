@@ -6,6 +6,7 @@
 * Defect Type: Inappropriate code
 * Defect Sub-type: Dead code
 * Description: Defect Free Code to identify false positives in dead code
+* CWE-561: Dead Code
 */
 #include "HeaderFile.h"
 /*

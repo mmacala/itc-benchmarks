@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Stack related defects
 * Defect Sub-type: Stack overflow
-*
+* CWE-121: Stack-based Buffer Overflow
 */
 
 /*	(Note) created test, assuming the maximum stack size 15 Kbytes (= 15360 bytes)	*/

@@ -6,6 +6,7 @@
 * Defect Type: Pointer related defects
 * Defect Sub-type: Free NULL  pointer
 * Description: Defect Free Code to identify false positives while freeing null pointer
+* CWE-476: NULL Pointer Dereference
 */
 
 #include "HeaderFile.h"

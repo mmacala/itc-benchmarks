@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Numerical defects
 * Defect Sub-type: Integer sign lost because of unsigned cast
-*
+* CWE-196: Unsigned to Signed Conversion Error
 */
 
 #include "HeaderFile.h"

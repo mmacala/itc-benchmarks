@@ -6,6 +6,7 @@
 * Defect Type: Static memory defects
 * Defect Sub-type: Static buffer underrun
 * Description: Defect Free Code to identify false positives in stack underun condition
+* CWE-124: Buffer Underwrite ('Buffer Underflow')
 */
 
 #include "HeaderFile.h"

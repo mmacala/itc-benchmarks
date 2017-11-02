@@ -6,6 +6,7 @@
 * Defect Type: Inappropriate code
 * Defect Sub-type: Contradict conditions
 * Description: Defect Free Code to identify false positives occurring in contradicting conditions
+* CWE-398: Indicator of Poor Code Quality
 */
 #include "HeaderFile.h"
 int rand (void);
@@ -21,7 +22,7 @@ void conflicting_cond_001 ()
 	int ret;
 
 	a = rand();
-	if ((a == 0) || (a == 1)) /*Tool should Not detect this line as error*/ /*No ERROR:contradict condition*/
+	if ((a == 0) || (a == 1)) /*Tool should not detect this line as error*/ /*No ERROR:contradict condition*/
 	{
 		b += a;
 	}
@@ -40,7 +41,7 @@ void conflicting_cond_002 ()
 	int ret;
 
 	a = rand();
-	if (! ((a < 5) || (10 < a))) /*Tool should Not detect this line as error*/ /*No ERROR:contradict condition*/
+	if (! ((a < 5) || (10 < a))) /*Tool should not detect this line as error*/ /*No ERROR:contradict condition*/
 	{
 		b += a;
 	}
@@ -59,7 +60,7 @@ void conflicting_cond_003 ()
 	int ret;
 
 	a = rand();
-	if (((0 < a) && (a < 2)) || ((8 < a) && (a < 10)))/*Tool should Not detect this line as error*/ /*No ERROR:contradict condition*/
+	if (((0 < a) && (a < 2)) || ((8 < a) && (a < 10)))/*Tool should not detect this line as error*/ /*No ERROR:contradict condition*/
 	{
 		b += a;
 	}
@@ -81,7 +82,7 @@ void conflicting_cond_004 ()
 	if (a < 5)
 	{
 		a += 10;
-		if (10 < a)/*Tool should Not detect this line as error*/ /*No ERROR:contradict condition*/
+		if (10 < a)/*Tool should not detect this line as error*/ /*No ERROR:contradict condition*/
 		{
 			b += a;
 		}
@@ -101,7 +102,7 @@ void conflicting_cond_005 ()
 	int ret;
 
 	a = rand();
-	b = ((a == 0) || (a == 1)) ? 0 : 1;/*Tool should Not detect this line as error*/ /*No ERROR:contradict condition*/
+	b = ((a == 0) || (a == 1)) ? 0 : 1;/*Tool should not detect this line as error*/ /*No ERROR:contradict condition*/
 	ret = b;
         sink = ret;
 }
@@ -116,7 +117,7 @@ void conflicting_cond_006 ()
 	int b = 0;
 	int ret;
 
-	for (a = 0; (a == 0) || (a == 1); a ++)/*Tool should Not detect this line as error*/ /*No ERROR:contradict condition*/
+	for (a = 0; (a == 0) || (a == 1); a ++)/*Tool should not detect this line as error*/ /*No ERROR:contradict condition*/
 	{
 		b += a;
 	}
@@ -135,7 +136,7 @@ void conflicting_cond_007 ()
 	int ret;
 
 	a = rand();
-	while ((a == 0) || (a == 1))/*Tool should Not detect this line as error*/ /*No ERROR:contradict condition*/
+	while ((a == 0) || (a == 1))/*Tool should not detect this line as error*/ /*No ERROR:contradict condition*/
 	{
 		b += a;
 		a ++;
@@ -155,7 +156,7 @@ void conflicting_cond_008 ()
 	int ret;
 
 	a = rand();
-	while (! ((a < 5) || (10 < a)))/*Tool should Not detect this line as error*/ /*No ERROR:contradict condition*/
+	while (! ((a < 5) || (10 < a)))/*Tool should not detect this line as error*/ /*No ERROR:contradict condition*/
 	{
 		b += a;
 		a ++;
@@ -175,7 +176,7 @@ void conflicting_cond_009 ()
 	int ret;
 
 	a = rand();
-	while (((0 < a) && (a < 2)) || ((8 < a) && (a < 10)))/*Tool should Not detect this line as error*/ /*No ERROR:contradict condition*/
+	while (((0 < a) && (a < 2)) || ((8 < a) && (a < 10)))/*Tool should not detect this line as error*/ /*No ERROR:contradict condition*/
 	{
 		b += a;
 		a ++;
@@ -197,7 +198,7 @@ void conflicting_cond_010 ()
 	{
 		a = rand();
 	}
-	while ((a == 0) || (a == 1));/*Tool should Not detect this line as error*/ /*No ERROR:contradict condition*/
+	while ((a == 0) || (a == 1));/*Tool should not detect this line as error*/ /*No ERROR:contradict condition*/
 	ret = a;
         sink = ret;
 }

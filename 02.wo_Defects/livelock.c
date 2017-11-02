@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Live lock
 * Description: Defect Free Code to identify false positives in live lock - concurrency conditions
+* CWE-764: Multiple Locks of a Critical Resource
 */
 
 
@@ -28,7 +29,7 @@ void *mythreadA(void *pram)
 		pthread_mutex_lock(&livelock_001_glb_A);
 		x=x+1;
 		pthread_mutex_unlock(&livelock_001_glb_A);
-		int status=pthread_mutex_trylock(&livelock_001_glb_B);
+		int status=pthread_mutex_trylock(&livelock_001_glb_B);/*Tool should not detect this line as error*/ /*No ERROR: Live lock*/
 		pthread_mutex_unlock(&livelock_001_glb_B);
 
 		if(status==0)

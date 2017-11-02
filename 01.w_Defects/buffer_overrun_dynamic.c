@@ -10,6 +10,7 @@
 *
 *  Created on: Sep 27, 2012
 *      Author: caesaru01
+* CWE-122: Heap-based Buffer Overflow
 */
 
 /* Dynamic buffer overrun

@@ -8,6 +8,7 @@
 * Description: Defect Free Code to identify false positives while memory_allocation_failure -  Memory could not be allocated / insufficient memory
 *  Created on: Oct 14, 2013
 *      Author: hemalatha
+* CWE-789: Uncontrolled Memory Allocation
 */
 
 /*
@@ -327,7 +328,7 @@ void memory_allocation_failure_010_func_001(int devno)
 	{
 	    do
 	    {
-		memory_allocation_failure_010_arr_gbl = (memory_allocation_failure_010_s_001 *) malloc (10*sizeof(memory_allocation_failure_010_s_001));
+		memory_allocation_failure_010_arr_gbl = (memory_allocation_failure_010_s_001 *) malloc (10*sizeof(memory_allocation_failure_010_s_001)); /*Tool should not detect this line as error*/ /*No ERROR:Memory allocation failure */
             i++;
 	    }while( i<=MAX_VAL);
 	}
@@ -655,7 +656,7 @@ int memory_allocation_failure_015_func_001 ()
 
 void memory_allocation_failure_015_func_002 ()
 {
-	memory_allocation_failure_015_gbl_ptr = (int *) malloc (memory_allocation_failure_015_func_001()*sizeof(int));/*Tool should detect this line as error*/ /*ERROR:Memory allocation failure */
+	memory_allocation_failure_015_gbl_ptr = (int *) malloc (memory_allocation_failure_015_func_001()*sizeof(int));/*Tool should not detect this line as error*/ /*No ERROR:Memory allocation failure */
 }
 
 int memory_allocation_failure_015_func_003 (int flag)

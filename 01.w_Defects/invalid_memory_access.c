@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Resource management defects
 * Defect Sub-type: Invalid memory access to already freed area
-*
+* CWE-416: Use After Free
 */
 
 /*

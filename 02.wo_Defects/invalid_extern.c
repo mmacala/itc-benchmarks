@@ -6,6 +6,7 @@
 * Defect Type: Misc defects
 * Defect Sub-type: Bad extern type for global variable
 * Description: Defect Free Code to identify false positives during invalid extern declaration
+* CWE-843: Access of Resource Using Incompatible Type ('Type Confusion')
 */
 
 /*
@@ -27,7 +28,7 @@ typedef struct {
         int  data;
 }invalid_extern_001_glb_006_s_001;
 
-extern invalid_extern_001_glb_006_s_001 *invalid_extern_001_glb_006_str;
+extern invalid_extern_001_glb_006_s_001 *invalid_extern_001_glb_006_str; /*Tool should not detect this line as error*/ /*No ERROR:Bad extern type for global variable*/
 
 
 void invalid_extern_001 ()

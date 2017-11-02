@@ -6,6 +6,7 @@
 * Defect Type: Stack related defects
 * Defect Sub-type: Cross thread stack access
 * Description: Defect Free Code to identify false positives in cross thread access
+* CWE-672: Operation on a Resource after Expiration or Release
 */
 
 

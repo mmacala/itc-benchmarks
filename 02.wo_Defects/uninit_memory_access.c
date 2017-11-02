@@ -8,6 +8,7 @@
 * Description: Defect Free Code to identify false positives to identify access to memory locations which are uninitialized
 *  Created on: Sep 26, 2013
 *      Author: hemalatha
+* CWE-665: Improper Initialization
 */
 
 #include "HeaderFile.h"
@@ -126,7 +127,7 @@ void uninit_memory_access_006 ()
     char *str1 = (char *) calloc(25,sizeof(char));
     char *str2 = "STRING";
     uninit_memory_access_006_func_001(str1, str2);
-    printf("%s\n", str1);
+    printf("%s\n", str1);/*Tool should not detect this line as error*/ /*No ERROR:Uninitialized Memory Access*/
 }
 
 /*
@@ -153,7 +154,7 @@ void uninit_memory_access_007_func_002(uninit_memory_access_007_s_001 *st)
     int i;
     for (i = 0; i < MAX; i++)
     {
-        temp += st->arr[i];
+        temp += st->arr[i];/*Tool should not detect this line as error*/ /*No ERROR:Uninitialized Memory Access*/
     }
 }
 

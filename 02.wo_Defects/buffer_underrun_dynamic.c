@@ -9,6 +9,7 @@
 * Description: Defect Free Code to identify false positives in buffer underrun in dynamic memory allocation
 *  Created on: Sep 27, 2012
 *      Author: caesaru01
+* CWE-124: Buffer Underwrite ('Buffer Underflow')
 */
 
 /*
@@ -23,7 +24,7 @@ void dynamic_buffer_underrun_001 ()
 	{
 	    for (i=4;i>=0;i--)
 	    {
-			buf[i]=1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+			buf[i]=1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    }
 	    free(buf);
 	}
@@ -38,7 +39,7 @@ void dynamic_buffer_underrun_002 ()
 	short *buf=(short*) calloc(5,sizeof(short));
 	if(buf!=NULL)
 	{
-		*(buf-0)=1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		*(buf-0)=1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		free(buf);
 	}
 }
@@ -58,7 +59,7 @@ void dynamic_buffer_underrun_003 ()
 		{
 			buf[i]=1;
 		}
-		ret = buf[0]; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		ret = buf[0]; /*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		free(buf);
 		printf("%d",ret);
 	}
@@ -73,7 +74,7 @@ void dynamic_buffer_underrun_004 ()
 	int *buf=(int*) calloc(5,sizeof(int));
 	if(buf!=NULL)
 	{
-		*(buf-0) = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		*(buf-0) = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		free(buf);
 	}
 }
@@ -90,7 +91,7 @@ void dynamic_buffer_underrun_005 ()
 	{
 		for(i=0;i<5;i++)
 		{
-			buf[i]=1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+			buf[i]=1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		}
 		free(buf);
 	}
@@ -108,7 +109,7 @@ void dynamic_buffer_underrun_006 ()
 	{
 		for(i=0;i<5;i++)
 		{
-			buf[i]=1.0; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+			buf[i]=1.0; /*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		}
 	    free(buf);
 	}
@@ -126,7 +127,7 @@ void dynamic_buffer_underrun_007 ()
 	{
 		for(i=0;i<5;i++)
 		{
-			buf[i]=1.0; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+			buf[i]=1.0; /*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		}
 	    free(buf);
 	}
@@ -148,7 +149,7 @@ void dynamic_buffer_underrun_008 ()
 	{
 		for(j=0;j<5;j++)
 		{
-			*(*(buf+i)+j)=i; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+			*(*(buf+i)+j)=i; /*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		}
 		free(buf[i]);
 	}
@@ -170,7 +171,7 @@ void dynamic_buffer_underrun_009 ()
 	int i,j=4;
 	for(i=0;i<5;i++)
 	{
-		*((*pbuf[i])+j)=5; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		*((*pbuf[i])+j)=5; /*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	}
 	free(buf1);
 	free(buf2);
@@ -194,7 +195,7 @@ void dynamic_buffer_underrun_010 ()
 	dynamic_buffer_underrun_010_s_001* sbuf= (dynamic_buffer_underrun_010_s_001*)calloc(5,sizeof(dynamic_buffer_underrun_010_s_001)) ;
 	if(sbuf!=NULL)
 	{
-	    sbuf[0].a = 1; /*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    sbuf[0].a = 1; /*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(sbuf);
 	}
 }
@@ -214,7 +215,7 @@ void dynamic_buffer_underrun_011 ()
 	dynamic_buffer_underrun_011_s_001* s=(dynamic_buffer_underrun_011_s_001*) calloc(5,sizeof(dynamic_buffer_underrun_011_s_001)) ;
 	if(s!=NULL)
 	{
-		(s+0)->buf[4] = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		(s+0)->buf[4] = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		free(s);
 	}
 }
@@ -229,7 +230,7 @@ void dynamic_buffer_underrun_012 ()
 	int index = 0;
 	if(buf!=NULL)
 	{
-	    *(buf-index)=9;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    *(buf-index)=9;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		free(buf);
 	}
 }
@@ -245,7 +246,7 @@ void  dynamic_buffer_underrun_013()
 
 	if(buf!=NULL)
 	{
-	    *(buf +((-2 * index) + 6)) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    *(buf +((-2 * index) + 6)) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(buf);
 	}
 }
@@ -260,7 +261,7 @@ void dynamic_buffer_underrun_014 ()
 	int index = 2;
 	if(buf!=NULL)
 	{
-	    buf[(index * index) -4] = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    buf[(index * index) -4] = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(buf);
 	}
 }
@@ -275,7 +276,7 @@ void dynamic_buffer_underrun_015 ()
 	int index = 2;
 	if(buf!=NULL)
 	{
-	    buf[(index * index) -4] = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    buf[(index * index) -4] = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(buf);
 	}
 }
@@ -295,7 +296,7 @@ void dynamic_buffer_underrun_016 ()
 	int *buf=(int*) calloc(5,sizeof(int));
 	if(buf!=NULL)
 	{
-	    buf[dynamic_buffer_underrun_016_func_001 ()] = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    buf[dynamic_buffer_underrun_016_func_001 ()] = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(buf);
 	}
 }
@@ -309,7 +310,7 @@ void dynamic_buffer_underrun_017_func_001 (int index)
 	int *buf=(int*) calloc(5,sizeof(int));
 	if(buf!=NULL)
 	{
-	    *(buf -index) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    *(buf -index) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(buf);
 	}
 }
@@ -330,7 +331,7 @@ void dynamic_buffer_underrun_018 ()
 	int index = 2;
 	if(buf!=NULL)
 	{
-	    *(buf-indexes[index]) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    *(buf-indexes[index]) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(buf);
 	}
 }
@@ -347,7 +348,7 @@ void dynamic_buffer_underrun_019 ()
 	index1 = index;
 	if(buf!=NULL)
 	{
-	    buf[index1] = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    buf[index1] = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(buf);
 	}
 }
@@ -366,7 +367,7 @@ void dynamic_buffer_underrun_020 ()
 	index2 = index1;
 	if(buf!=NULL)
 	{
-	    buf[index2] = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    buf[index2] = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(buf);
 	}
 }
@@ -384,7 +385,7 @@ void dynamic_buffer_underrun_021 ()
 	{
 		p1 = buf;
 		p2 = p1;
-		*(p2-0) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		*(p2-0) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(buf);
 	}
 }
@@ -400,7 +401,7 @@ void dynamic_buffer_underrun_022 ()
 	if(buf!=NULL)
 	{
 	    p = buf;
-	    *(p-0) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    *(p-0) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    free(buf);
 	}
 }
@@ -419,7 +420,7 @@ void dynamic_buffer_underrun_023 ()
 	    p = buf;
 	    for (i = 4; i > 0 ; i--)
 	    {
-	    	p[i]='1';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    	p[i]='1';/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    }
 	    free(buf);
 	}
@@ -431,7 +432,7 @@ void dynamic_buffer_underrun_023 ()
  */
 void dynamic_buffer_underrun_024_func_001 (int *buf)
 {
-	*(buf-0) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	*(buf-0) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 }
 
 void dynamic_buffer_underrun_024 ()
@@ -458,7 +459,7 @@ void dynamic_buffer_underrun_025 ()
 	{
 	    for(i=4;i>0;i--)
 	    {
-	    	buf[i]='1';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    	buf[i]='1';/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    }
 	    free(buf);
 	}
@@ -476,7 +477,7 @@ void dynamic_buffer_underrun_026 ()
 	if(buf!=NULL)
 	{
 	     p = (int*)buf;
-	     *(p - 0) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	     *(p - 0) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	     free(buf);
 	}
 }
@@ -492,7 +493,7 @@ void dynamic_buffer_underrun_027 ()
 	if(buf!=NULL)
 	{
 		p = (char*)buf;
-		*(p - 0) = 1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		*(p - 0) = 1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		free(buf);
 	}
 }
@@ -511,7 +512,7 @@ void dynamic_buffer_underrun_028 ()
 	{
 		*(buf1+i)=i;
 	}
-	*(buf2-*(buf1+0))=1;/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	*(buf2-*(buf1+0))=1;/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	free(buf1);
 	free(buf2);
 }
@@ -525,7 +526,7 @@ void dynamic_buffer_underrun_029()
 		char* buf= (char*) malloc(sizeof(char));
 		if(buf!=NULL)
 		{
-		    buf[0]='a';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		    buf[0]='a';/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		    free(buf);
 		}
 	    break;
@@ -552,7 +553,7 @@ void dynamic_buffer_underrun_030()
 	{
 		for(j=9;j>-1;j--)
 		{
-		  doubleptr[i][j]='a';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		  doubleptr[i][j]='a';/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		}
 		free(doubleptr[i]);
 	}
@@ -571,7 +572,7 @@ void dynamic_buffer_underrun_031()
 	if(ptr1!=NULL)
 	{
 	    ptr1[11]='\0';
-	    for(i=10;i>-1;i--)/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    for(i=10;i>-1;i--)/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    {
 	        ptr1[i]='a';
 	    }
@@ -599,7 +600,7 @@ void dynamic_buffer_underrun_032()
 	if(ptr_s!=NULL)
 	{
 		for(i=0;i<10;i++)
-	    ptr_s[i].arr[i]='a';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    ptr_s[i].arr[i]='a';/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		free(ptr_s);
 	}
 }
@@ -621,7 +622,7 @@ void dynamic_buffer_underrun_033()
 		   c = message[len];
 		   if(isspace(c))
 		   {
-			   message[len]='\n';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+			   message[len]='\n';/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		   }
 
 	    len--;
@@ -645,7 +646,7 @@ void dynamic_buffer_underrun_034()
 	{
 	    for(i=0;i<strlen(srcbuf);i++)
 	    {
-		     if(srcbuf[i]==ch)/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		     if(srcbuf[i]==ch)/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		     {
 			     loc=i;
 		     }
@@ -676,7 +677,7 @@ void dynamic_buffer_underrun_035()
 	if(loc2==0)
 	loc2++;
 
-	doubleptr[0][loc2]='T';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	doubleptr[0][loc2]='T';/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	for (i=0;i<10;i++)
 	{
 		free(doubleptr[i]);
@@ -696,7 +697,7 @@ void dynamic_buffer_underrun_036()
 	  char *newTest= (char*) malloc(15*sizeof(char));
 	  if(newTest!=NULL)
 	  {
-	     memcpy (newTest,test,15);/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	     memcpy (newTest,test,15);/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	     free(newTest);
 	  }
  }
@@ -716,7 +717,7 @@ void dynamic_buffer_underrun_037()
 	{
 	    for (i=0;i<10;i++)
 	    {
-	    	doubleptr[i]=(char*) malloc(10*sizeof(char));/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+	    	doubleptr[i]=(char*) malloc(10*sizeof(char));/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    	if(doubleptr[i]!=NULL)
 	    	{
 	    	    doubleptr[0][0]='T';
@@ -746,7 +747,7 @@ void dynamic_buffer_underrun_038()
 
 	if(new_s!=NULL)
 	{
-		new_s[loc].arr[i]='a';/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+		new_s[loc].arr[i]='a';/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 	    new_s[0].arri[i]=2;
 	    free(new_s);
 	}
@@ -773,7 +774,7 @@ void dynamic_buffer_underrun_039()
 	{
 		for(i=0;i<15;i++)
 		{
-			memset(ptr_s1,1,15*sizeof(dynamic_buffer_underrun_s_008));/*Tool should Not detect this line as error*/ /*No ERROR:Buffer Underrun*/
+			memset(ptr_s1,1,15*sizeof(dynamic_buffer_underrun_s_008));/*Tool should not detect this line as error*/ /*No ERROR:Buffer Underrun*/
 		}
 	    memcpy(ptr_s2,ptr_s1,15*sizeof(dynamic_buffer_underrun_s_008));
 	    free(ptr_s1);

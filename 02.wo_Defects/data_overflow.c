@@ -6,6 +6,7 @@
 * Defect Type: Numerical defects
 * Defect Sub-type: Data overflow
 * Description: Defect Free Code to identify false positives in data overflow in static declaration
+* CWE-190: Integer Overflow or Wraparound
 */
 
 static int sink;
@@ -21,7 +22,7 @@ void data_overflow_001 ()
 {
 	char max = 0x70;
 	char ret;
-	ret = max + 2; /*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 2; /*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -33,7 +34,7 @@ void data_overflow_002 ()
 {
 	short max = 0x7ff0;
 	short ret;
-	ret = max + 2; /*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 2; /*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -46,7 +47,7 @@ void data_overflow_003 ()
 	int max = 0x7ffffffe;
 	int ret;
         // JDR: fixed a signed overflow in next line
-	ret = max + 1;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 1;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -58,7 +59,7 @@ void data_overflow_004 ()
 {
 	long max = 0x7ffffffe;
 	long ret;
-	ret = max + 1;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 1;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -70,7 +71,7 @@ void data_overflow_005 ()
 {
 	unsigned char max = 0xfe;
 	unsigned char ret;
-	ret = max + 1;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 1;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -82,7 +83,7 @@ void data_overflow_006 ()
 {
 	unsigned short max = 0xfffe;
 	unsigned short ret;
-	ret = max + 1;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 1;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -94,7 +95,7 @@ void data_overflow_007 ()
 {
 	unsigned int max = 0xfffffffe;
 	unsigned int ret;
-	ret = max + 1;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 1;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -106,7 +107,7 @@ void data_overflow_008 ()
 {
 	unsigned long max = 0xfffffffe;
 	unsigned long ret;
-	ret = max + 1;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 1;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -123,7 +124,7 @@ void data_overflow_009 ()
 {
 	data_overflow_009_s_001 s;
 	s.max = 0x0e;
-	s.ret = s.max + 1;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	s.ret = s.max + 1;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
 }
 
 /*
@@ -139,7 +140,7 @@ void data_overflow_010 ()
 {
 	data_overflow_010_s_001 s;
 	s.max = 0x1e;
-	s.ret = s.max + 1;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	s.ret = s.max + 1;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
 }
 
 /*
@@ -151,7 +152,7 @@ void data_overflow_011 ()
 	int max = 0x7ffffffe;
 	int ret;
 	max ++;
-	ret = max;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -163,7 +164,7 @@ void data_overflow_012 ()
 {
 	int max = 0x7fffff7f;
 	int ret;
-	ret = max + 128;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 128;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -175,7 +176,7 @@ void data_overflow_013 ()
 {
 	int max = 0x3fffffff;
 	int ret;
-	ret = max * 2;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max * 2;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -188,7 +189,7 @@ void data_overflow_014 ()
 	int max = 0x7ffffffe;
 	int d = 1;
 	int ret;
-	ret = max + d;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + d;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -202,7 +203,7 @@ void data_overflow_015 ()
 	int d;
 	int ret;
 	d = rand() % 2;
-	ret = max + d;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + d;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -214,7 +215,7 @@ void data_overflow_016 ()
 {
 	int max = 429496729;
 	int ret;
-	ret = (5 * max) + 2;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = (5 * max) + 2;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -226,7 +227,7 @@ void data_overflow_017 ()
 {
 	int max = 46340;
 	int ret;
-	ret = (max * max) + 88047;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = (max * max) + 88047;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -243,7 +244,7 @@ void data_overflow_018 ()
 {
 	int max = 0x7ffffffe;
 	int ret;
-	ret = max + data_overflow_018_func_001();/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + data_overflow_018_func_001();/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -255,7 +256,7 @@ void data_overflow_019_func_001 (int d)
 {
 	int max = 0x7ffffffe;
 	int ret;
-	ret = max + d;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + d;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -273,7 +274,7 @@ void data_overflow_020 ()
 	int max = 0x7ffffffe;
 	int dlist[4] = {4, 1, 3, 2};
 	int ret;
-	ret = max + dlist[1];/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + dlist[1];/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -288,7 +289,7 @@ void data_overflow_021 ()
 	int d1;
 	int ret;
 	d1 = d;
-	ret = max + d1;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + d1;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -305,7 +306,7 @@ void data_overflow_022 ()
 	int ret;
 	d1 = d;
 	d2 = d1;
-	ret = max + d2;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + d2;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -316,7 +317,7 @@ void data_overflow_022 ()
 void data_overflow_023 ()
 {
 	int ret;
-	ret = 0x7ffffffe + 1;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = 0x7ffffffe + 1;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -332,7 +333,7 @@ void data_overflow_024 ()
 	float max = 3.40282326e+38F;
 
 	/* 0 11100111 00000000000000000000000 */
-	ret = max + 2.02824096e+31F;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 2.02824096e+31F;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 
@@ -348,7 +349,7 @@ void data_overflow_025 ()
 	double max = 1.7976931348623155e+308;
 
 	/* 0 11111001010 0000000000000000000000000000000000000000000000000000 */
-	ret = max + 1.9958403095347198e+292;/*Tool should Not detect this line as error*/ /*No ERROR:Data Overflow*/
+	ret = max + 1.9958403095347198e+292;/*Tool should not detect this line as error*/ /*No ERROR:Data Overflow*/
         sink = ret;
 }
 

@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Stack related defects
 * Defect Sub-type: Stack underrun
-*
+* CWE-124: Buffer Underwrite ('Buffer Underflow')
 */
 
 /* (Note) The default stack reservation size used by the linker in windows XP (64bit) is 1 MB(=1048576 bytes)*/

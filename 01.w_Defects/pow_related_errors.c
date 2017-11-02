@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Numerical defects
 * Defect Sub-type: Power related errors
-*
+* CWE-189: Numeric Errors
 */
 
 /*

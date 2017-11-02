@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Dynamic memory defects
 * Defect Sub-type: Memory copy at overlapping areas
-*
+* CWE-398: Indicator of Poor Code Quality
 */
 
 #include "HeaderFile.h"

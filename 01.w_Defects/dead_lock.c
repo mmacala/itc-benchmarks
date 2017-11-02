@@ -5,7 +5,7 @@
 * ---------------------
 * Defect Type: Concurrency defects
 * Defect Sub-type: Dead lock
-*
+* CWE-833: Deadlock
 */
 
 #include "HeaderFile.h"

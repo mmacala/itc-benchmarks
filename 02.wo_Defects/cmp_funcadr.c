@@ -5,6 +5,7 @@
 * Defect Type: Pointer related defects
 * Defect Sub-type: Comparison NULL with function pointer
 * Description: Defect Free Code to identify false positives while comparison of NULL with function pointers
+* CWE-480: Use of Incorrect Operator
 */
 
 #include "HeaderFile.h"
@@ -22,7 +23,7 @@ int* cmp_funcadr_001_func_001 ()
 void cmp_funcadr_001 ()
 {
 	int ret = 0;
-	if (cmp_funcadr_001_func_001() == NULL) /*Tool should Not detect this line as error*/ /*No ERROR:compare function address with NULL*/
+	if (cmp_funcadr_001_func_001() == NULL) /*Tool should not detect this line as error*/ /*No ERROR:compare function address with NULL*/
 	{
 		ret = 1;
 	}
@@ -43,7 +44,7 @@ int cmp_funcadr_002_func_001 ()
 void cmp_funcadr_002 ()
 {
 	int ret = 0;
-	if (cmp_funcadr_002_func_001() == 10) /*Tool should Not detect this line as error*/ /*No ERROR:compare function address with NULL*/
+	if (cmp_funcadr_002_func_001() == 10) /*Tool should not detect this line as error*/ /*No ERROR:compare function address with NULL*/
 	{
 		ret = 1;
 	}

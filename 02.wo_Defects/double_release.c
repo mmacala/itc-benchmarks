@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Double release
 * Description: Defect Free Code to identify false positives in double release - concurrency defects
+* CWE-765: Multiple Unlocks of a Critical Resource
 */
 
 /*You can specify the-lpthread to include <pthread.h>  Compile options */
@@ -75,7 +76,7 @@ void * double_release_002_tsk_001 (void * pram)
 {
 	pthread_mutex_lock (double_release_002_glb_mutex);
 	double_release_002_glb_data = (double_release_002_glb_data% 100) + 1;
-	pthread_mutex_unlock (double_release_002_glb_mutex);
+	pthread_mutex_unlock (double_release_002_glb_mutex); /*Tool should not detect this line as error*/ /*No ERROR: UnLock without locking*/
 	return NULL;
 }
 

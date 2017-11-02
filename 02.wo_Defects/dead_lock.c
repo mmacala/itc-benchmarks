@@ -6,6 +6,7 @@
 * Defect Type: Concurrency defects
 * Defect Sub-type: Dead lock
 * Description: Defect Free Code to identify false positives in dead lock conditions
+* CWE-833: Deadlock
 */
 #include "HeaderFile.h"
 
@@ -58,7 +59,7 @@ void* dead_lock_001_tsk_002 (void *pram)
 {
 	/* lock A */
 #if ! defined(CHECKER_POLYSPACE)
-	pthread_mutex_lock(&dead_lock_001_glb_mutexA);   /*Tool should Not detect this line as error*/ /*No ERROR:Dead Lock*/
+	pthread_mutex_lock(&dead_lock_001_glb_mutexA);   /*Tool should not detect this line as error*/ /*No ERROR:Dead Lock*/
 #endif /* ! defined(CHECKER_POLYSPACE) */
 	dead_lock_001_glb_dataA = (dead_lock_001_glb_dataA % 100) + 1;
 
@@ -190,7 +191,7 @@ void* dead_lock_002_tsk_003 (void *pram)
 {
 	/* lock A */
 #if ! defined(CHECKER_POLYSPACE)
-	pthread_mutex_lock(&dead_lock_002_glb_mutexA);  /*Tool should Not detect this line as error*/ /*No ERROR:Dead Lock*/
+	pthread_mutex_lock(&dead_lock_002_glb_mutexA);  /*Tool should not detect this line as error*/ /*No ERROR:Dead Lock*/
 #endif /* ! defined(CHECKER_POLYSPACE) */
 	dead_lock_002_glb_dataA = (dead_lock_002_glb_dataA % 100) + 1;
 
@@ -339,7 +340,7 @@ void* dead_lock_003_tsk_002 (void *pram)
 {
 	/* lock A */
 #if ! defined(CHECKER_POLYSPACE)
-	pthread_mutex_lock(dead_lock_003_glb_mutexA);  /*Tool should Not detect this line as error*/ /*No ERROR:Dead Lock*/
+	pthread_mutex_lock(dead_lock_003_glb_mutexA);  /*Tool should not detect this line as error*/ /*No ERROR:Dead Lock*/
 #else /* ! defined(CHECKER_POLYSPACE) */
 	pthread_mutex_lock(&dead_lock_003_glb_mutexA_);
 #endif /* ! defined(CHECKER_POLYSPACE) */
@@ -496,7 +497,7 @@ void* dead_lock_004_tsk_002 (void *pram)
 {
 	/* lock B */
 #if ! defined(CHECKER_POLYSPACE)
-	pthread_mutex_lock(dead_lock_004_glb_mutexB);  /*Tool should Not detect this line as error*/ /*No ERROR:Dead Lock*/
+	pthread_mutex_lock(dead_lock_004_glb_mutexB);  /*Tool should not detect this line as error*/ /*No ERROR:Dead Lock*/
 #else /* ! defined(CHECKER_POLYSPACE) */
 	pthread_mutex_lock(&dead_lock_004_glb_mutexB_);
 #endif /* ! defined(CHECKER_POLYSPACE) */
@@ -619,7 +620,7 @@ void dead_lock_005_func_002 ()
 {
 	/* lock B */
 #if ! defined(CHECKER_POLYSPACE)
-	pthread_mutex_lock(dead_lock_005_glb_mutexB); /*Tool should Not detect this line as error*/ /*No ERROR:Dead Lock*/
+	pthread_mutex_lock(dead_lock_005_glb_mutexB); /*Tool should not detect this line as error*/ /*No ERROR:Dead Lock*/
 #else /* ! defined(CHECKER_POLYSPACE) */
 	pthread_mutex_lock(&dead_lock_005_glb_mutexB_);
 #endif /* ! defined(CHECKER_POLYSPACE) */
