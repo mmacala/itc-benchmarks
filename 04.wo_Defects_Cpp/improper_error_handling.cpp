@@ -22,7 +22,7 @@ void improper_error_handling_001()
 
 		c=b/a;
 	}
-	catch(int a)
+	catch(int a) /*Tool should not detect this line as error*/ /*No ERROR: Improper error handling*/
 	{
 		printf("Error1: a is equal to 0 %d  \n",a);
 		//exit(1);
@@ -43,7 +43,7 @@ void improper_error_handling_002()
 
 		c=b/a;
 	}
-	catch(int a)
+	catch(int a) /*Tool should not detect this line as error*/ /*No ERROR: Improper error handling*/
 	{
 		printf("Error2: a is equal to 0 %d  \n",a);
 		//exit(1);
@@ -65,7 +65,7 @@ void improper_error_handling_003()
 
 		c=b/a;
 	}
-	catch(float a)
+	catch(float a) /*Tool should not detect this line as error*/ /*No ERROR: Improper error handling*/
 	{
 		printf("Error3: a is equal to 0 %f  \n",a);
 		//exit(1);
@@ -90,7 +90,7 @@ void improper_error_handling_004()
 
 			c=b/a;
 		}
-		catch(float a)
+		catch(float a) /*Tool should not detect this line as error*/ /*No ERROR: Improper error handling*/
 		{
 			throw a;
 		}
