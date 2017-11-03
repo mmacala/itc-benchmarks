@@ -19,7 +19,7 @@ double_free.c			       return_local.c \
 double_lock.c			       sign_conv.c \
 double_release.c		       sleep_lock.c \
 endless_loop.c			       st_cross_thread_access.c \
-free_nondynamic_allocated_memory.c     st_overflow.c \
+free_nondynamically_allocated_memory.c     st_overflow.c \
 free_null_pointer.c		       stubs.c \
 func_pointer.c			       st_underrun.c \
 function_return_value_unchecked.c      underrun_st.c \
