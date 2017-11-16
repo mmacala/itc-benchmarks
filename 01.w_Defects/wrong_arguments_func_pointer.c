@@ -4,7 +4,7 @@
 * Defect Classification
 * ---------------------
 * Defect Type: Pointer related defects
-* Defect Sub-type: Comparison NULL with function pointer
+* Defect Sub-type: Wrong arguments passed to a function pointer
 * Description: Defect Code to identify the wrong arguments fed into a function pointer
 *  Created on: Oct 8, 2013
 *      Author: hemalatha
