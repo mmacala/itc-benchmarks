@@ -6,7 +6,7 @@ static analysis benchmarks from Toyota ITC
 
 # The modified itc-benchmarks suite
 
-This repository is nothing but a fork of the original ITC-benchmarks repo published on github [itc-benchmarks](https://github.com/regehr/itc-benchmarks) which is modified as explained in section [Modifications of the itc-bechmarks](#modifications-of-the-itc-bechmarks).
+This repository is nothing but a fork of the original ITC-benchmarks repo published on github [itc-benchmarks](https://github.com/regehr/itc-benchmarks) which is modified as explained in section [Modifications of the itc-bechmarks](#modifications-of-the-itc-bechmarks). The modifications are meant to improve the way this benchmark can be automatically analyzed using static analysis tools. A suite of scripts which can be used to test the modified benchmark is available [here](https://github.com/andreiarusoaie/itc-testing-tools).
 
 # Modifications of the itc-bechmarks
 
