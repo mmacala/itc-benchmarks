@@ -1,0 +1,27 @@
+dist: trusty
+language: c
+compiler:
+  - gcc
+
+before_install:
+  - test -n $CC && unset CC
+  - chmod +x bootstrap
+  - ./bootstrap
+  - echo -n | openssl s_client -connect https://scan.coverity.com:443 | sed -ne '/-BEGIN CERTIFICATE-/,/-END CERTIFICATE-/p' | sudo tee -a /etc/ssl/certs/ca-
+
+   
+ env:
+  global:
+   # The next declaration is the encrypted COVERITY_SCAN_TOKEN, created
+   #   via the "travis encrypt" command using the project repo's public key
+   - secure: "KtrNmxxWvTElP7FQKMCwFco/ZruzrciW9ISU6PFhCMmInCsoIF9njGPV0A1DqzzMeD8J6mp1RXVpGFTvp57dZDV5QtNrfjKEzeS3r1MNbSWBNzAwtFwC50LmLqH7Vkg+tLZPM29UbUYwfM7yvDhkouWrqiRGqQXCmzHWYeA4zF6gVSTqtGQScbFL1Sl7+nrmJM82fSFTSLikOo9UYs2+JsGHYjoMsNtW8tNuSKoPzjLiJuSlP0bVAlF2bXjYfgovzI73zS4KWpMmikNGEPIYZW9TRzc6s5u5teLvloi6YY/wIQCfXtMhgvClTnJvmoOh7sCQVrM1M6vWxr3iA86+QkZbgu2ncnnRtz5b2gxVCWmV3UK3KWc/6tdAsuxNGAwPttohWofj6qaVu56QZKpm4HQd62h2eXhYS+oFmIfsyF5sy+sRooPMs6MW2L8xl1NITqI094JnE32JuUaMQ5hMyzBQPBFlRKJxCObmnPPQG8Y8z1Z8psdo0FTYVKDvX6VMaT7eWRBEURj6myqU3OHJyvVrE3A3IHESJyVUzYDNQC1W9eoxgOWJaZYcxH19ziI1y5NCMHMyp18+UtRCotXlP4jgNywX/OoG+06z6swZNqqziss5FxEZJBxJ3dAhZh9N0+uTUvjeWmmMvJlW0yCOzK0ChCKTWoKnChFhUCuGI/U="
+
+addons:
+  coverity_scan:
+    project:
+      name: "mmacala/itc-benchmarks-test"
+      description: ""
+    notification_email: marco.macala@gmail.com
+    build_command_prepend: ""
+    build_command: "make"
+    branch_pattern: coverity_scan
